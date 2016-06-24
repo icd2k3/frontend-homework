@@ -1,11 +1,12 @@
 $black      : #284266;
 $blue       : #1B9DE8;
-$gray       : #EBEEF2;
-$darkGray   : #eee;
-$darkerGray : #848484;
-$lightBlue  : #32a7ea;
 $darkBlue   : #1788ca;
+$darkerGray : #848484;
+$darkGray   : #eee;
+$gray       : #EBEEF2;
+$lightBlue  : #32a7ea;
 $purple     : #7C6CF2;
+$red        : #d9534f;
 $white      : #fff;
 
 $verticalPadding: 30px;

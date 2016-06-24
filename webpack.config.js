@@ -9,6 +9,9 @@ var BUILD_DIR      = path.resolve(__dirname, 'build/public');
 var CLIENT_DIR     = path.resolve(__dirname, 'src/client');
 var COMPONENTS_DIR = path.resolve(__dirname, 'src/client/components');
 
+var extractCSS 	      = new ExtractTextPlugin('style.css');
+var extractWidgetsCSS = new ExtractTextPlugin('widgets.css');
+
 var config = {
 	devtool: 'eval',
 	devServer: { hot: true },
@@ -35,11 +38,21 @@ var config = {
 				exclude: [/node_modules/, /build/]
 			},
 			{
-				test:   /\.css$/,
-				loader: ExtractTextPlugin.extract(
+				test: /\.css$/,
+				loader: extractCSS.extract(
 					'style-loader',
 					'css-loader?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]!postcss-loader'
-				)
+				),
+				exclude: /node_modules/
+			},
+			{
+				test: /\.css$/,
+				loader: extractWidgetsCSS.extract('css-loader'),
+				exclude: [/src/]
+			},
+			{
+				test: [/\.svg.*/, /\.gif.*/, /\.eot.*/, /\.woff.*/, /\.ttf.*/],
+				loader: 'file-loader'
 			}
 		]
 	},
@@ -61,7 +74,8 @@ var config = {
 		new HtmlWebpackPlugin({
 			template: './src/client/index.html'
 		}),
-		new ExtractTextPlugin('style.css', { allChunks: true }),
+		extractWidgetsCSS,
+		extractCSS,
 		new webpack.HotModuleReplacementPlugin()
 	],
 	resolve: {

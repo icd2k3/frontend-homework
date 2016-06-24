@@ -1,33 +1,47 @@
-.root {
-	margin-bottom: 5px;
-}
+@import '../../../../../common/styles/variables.css';
 
-.root:last-child {
-	margin-bottom: 10px;
-}
+body {
+	.root {
+		margin-bottom: 5px;
+	}
 
-.total {
-	text-align: right;
-	font-size: 1.5em;
-}
+	.root:last-child {
+		margin-bottom: 10px;
+	}
 
-.dropdownButton {
-	min-width: 141px;
-}
+	.total {
+		text-align: right;
+		font-size: 1.5em;
+	}
 
-.inputGroup {
-	width: 50%;
-}
+	.dropdownButton {
+		min-width: 141px;
+	}
 
-.formControl {
-	border-radius: 0;
-	border-right: 0;
-}
+	.inputGroup {
+		width: 50%;
+	}
 
-.formGroup {
-	width: 100%;
-}
+	.formControl {
+		border-radius: 0;
+		border-right: 0;
+	}
 
-.rowTotal {
-	border-left: 1px solid #ccc !important;
+	.formGroup {
+		width: 100%;
+	}
+
+	.rowTotal {
+		border-left: 1px solid #ccc;
+	}
+
+	.remove {
+		display: table-cell;
+	    float: right;
+	    height: 34px;
+	    margin-left: -6px;
+	    padding: 0;
+	    vertical-align: middle;
+	    width: 40px;
+	}
 }

@@ -31,6 +31,18 @@ export default function(
 
     switch (action.type) {
 
+    case ACTIONS.INVOICE_FORM_CHANGE_NAME:
+        return state
+            .setIn(['invoice', 'name'], action.name);
+
+    case ACTIONS.INVOICE_FORM_CHANGE_NOTES:
+        return state
+            .setIn(['invoice', 'notes'], action.notes);
+
+    case ACTIONS.INVOICE_FORM_CHANGE_DUE_DATE:
+        return state
+            .setIn(['invoice', 'dueDate'], action.unixTimestamp);
+
     case ACTIONS.INVOICE_FORM_ADD_LINE_ITEM:
         const currentLineItems = immutable.fromJS(state.get('invoice').get('lineItems') || []);
 

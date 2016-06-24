@@ -5,6 +5,7 @@ import {
 	Grid
 } from 'react-bootstrap';
 import HeaderContainer from './HeaderContainer/HeaderContainer.jsx';
+import InvoicesContainer from './InvoicesContainer/InvoicesContainer.jsx';
 import PopupContainer from './PopupContainer/PopupContainer.jsx';
 
 export default class AppContainer extends React.Component {
@@ -12,6 +13,7 @@ export default class AppContainer extends React.Component {
         return (
             <Grid className="AppContainer" fluid>
                 <HeaderContainer/>
+                <InvoicesContainer InvoicesContainerReducer={this.props.InvoicesContainerReducer}/>
                 <PopupContainer PopupContainerReducer={this.props.PopupContainerReducer}/>
             </Grid>
         );
@@ -21,6 +23,9 @@ export default class AppContainer extends React.Component {
 AppContainer.displayName = 'AppContainer';
 
 AppContainer.propTypes = {
+    InvoicesContainerReducer: ImmutablePropTypes.mapContains({
+        invoices: ImmutablePropTypes.list
+    }).isRequired,
     PopupContainerReducer: ImmutablePropTypes.mapContains({
         activePopups: ImmutablePropTypes.mapContains({
             createOrEditInvoicePopup: PropTypes.bool.isRequired

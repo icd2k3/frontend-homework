@@ -11,6 +11,7 @@ import {
     Grid,
     Row
 } from 'react-bootstrap';
+import { DateTimePicker } from 'react-widgets';
 import * as InvoiceFormActions from './InvoiceFormActions.js';
 import LineItem from './LineItem/LineItem.jsx';
 
@@ -28,6 +29,10 @@ export default class InvoiceForm extends React.Component {
 
     onChangeNotes(event) {
         this.props.dispatch(InvoiceFormActions.changeNotes(event.target.value));
+    }
+
+    onChangeDueDate(date) {
+        this.props.dispatch(InvoiceFormActions.changeDueDate(date));
     }
 
     render() {
@@ -64,7 +69,7 @@ export default class InvoiceForm extends React.Component {
                     </Col>
                 </Row>
                 <Row>
-                    <Col xs={12}>
+                    <Col xs={6}>
                         <FormGroup controlId='notes'>
                             <ControlLabel>Notes</ControlLabel>
                             <FormControl
@@ -73,6 +78,10 @@ export default class InvoiceForm extends React.Component {
                                 placeholder="Add some notes to this invoice. Such as payment options, etc."
                             />
                         </FormGroup>
+                    </Col>
+                    <Col xs={6}>
+                        <ControlLabel>Due Date</ControlLabel>
+                        <DateTimePicker onChange={this.onChangeDueDate.bind(this)}/>
                     </Col>
                 </Row>
             </Grid>
@@ -85,7 +94,10 @@ InvoiceForm.displayName = 'InvoiceForm';
 InvoiceForm.propTypes = {
     dispatch: PropTypes.func.isRequired,
     invoice: ImmutablePropTypes.mapContains({
+        dueDate: ImmutablePropTypes.number,
         lineItems: ImmutablePropTypes.list,
+        name: PropTypes.string,
+        notes: PropTypes.string,
         total: PropTypes.string
     }).isRequired
 };

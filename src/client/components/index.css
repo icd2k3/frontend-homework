@@ -13,15 +13,18 @@ body {
 }
 
 :global .btn {
-	background: $blue;
-	border-radius: 2px;
 	border: 0;
 	box-sizing: border-box;
-	color: $white;
 	font-weight: 400;
     outline: none !important;
     padding: 0.6em 1.4em;
     white-space: nowrap;
+}
+
+:global .btn-primary {
+	background: $blue;
+	border-radius: 2px;
+	color: $white;
 	&:hover,
 	&:focus {
 		background: $lightBlue;
@@ -40,18 +43,6 @@ body {
 	color: $blue;
 }
 
-:global .btn-info {
-	background: $darkGray;
-	color: $black;
-	&:hover,
-	&:focus {
-		background: $;
-	}
-	&:active:hover {
-		background: $darkerGray;
-	}
-}
-
 :global .modal-footer {
 	padding: 0;
 	.btn {
@@ -64,6 +55,13 @@ body {
 	.btn+.btn {
 		margin: 0;
 		width: 70%;
+	}
+}
+
+:global .modal-header {
+	padding: 20px 30px;
+	h4 {
+		font-size: 2em;
 	}
 }
 

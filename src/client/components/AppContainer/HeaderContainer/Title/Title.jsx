@@ -26,7 +26,7 @@ class Title extends React.Component {
                     <h1 className={styles.title}>
                         Invoiceinator 3000
                     </h1>
-                    <Button className={styles.button} onClick={this.onAddNewClick.bind(this)}>
+                    <Button bsStyle="primary" className={styles.button} onClick={this.onAddNewClick.bind(this)}>
                         <Glyphicon glyph="plus"/> Add New Invoice
                     </Button>
                 </Col>

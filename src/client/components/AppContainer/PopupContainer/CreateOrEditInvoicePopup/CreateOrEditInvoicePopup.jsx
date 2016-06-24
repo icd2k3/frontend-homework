@@ -1,5 +1,7 @@
 import React, { PropTypes } from 'react';
 import ImmutablePropTypes from 'react-immutable-proptypes';
+import { connect } from 'react-redux';
+import * as CreateOrEditInvoicePopupActions from './CreateOrEditInvoicePopupActions.js';
 import {
     Button,
     Glyphicon,
@@ -7,7 +9,20 @@ import {
 } from 'react-bootstrap';
 import InvoiceForm from './InvoiceForm/InvoiceForm.jsx';
 
-export default class CreateOrEditInvoicePopup extends React.Component {
+class CreateOrEditInvoicePopup extends React.Component {
+
+    onCreateClick() {
+        this.props.dispatch(
+            CreateOrEditInvoicePopupActions.create(
+                this.props.CreateOrEditInvoicePopupReducer.get('invoice')
+            )
+        );
+    }
+
+    onSaveClick() {
+
+    }
+
     render() {
         const invoice = this.props.CreateOrEditInvoicePopupReducer.get('invoice'),
             isEditMode = this.props.CreateOrEditInvoicePopupReducer.get('editMode');
@@ -21,8 +36,8 @@ export default class CreateOrEditInvoicePopup extends React.Component {
                     <InvoiceForm invoice={invoice} />
                 </Modal.Body>
                 <Modal.Footer>
-                    <Button bsStyle="info">Cancel</Button>
-                    <Button>
+                    <Button>Cancel</Button>
+                    <Button bsStyle="primary" onClick={isEditMode ? this.onSaveClick.bind(this) : this.onCreateClick.bind(this)}>
                         {isEditMode
                             ? <span><Glyphicon glyph="save-file"/> Save Invoice</span>
                             : <span><Glyphicon glyph="plus"/> Create Invoice</span>
@@ -40,5 +55,10 @@ CreateOrEditInvoicePopup.propTypes = {
     CreateOrEditInvoicePopupReducer: ImmutablePropTypes.mapContains({
         editMode: PropTypes.bool,
         invoice: ImmutablePropTypes.map.isRequired
-    }).isRequired
+    }).isRequired,
+    dispatch: PropTypes.func.isRequired
 };
+
+export default connect(() => {
+    return {};
+})(CreateOrEditInvoicePopup);

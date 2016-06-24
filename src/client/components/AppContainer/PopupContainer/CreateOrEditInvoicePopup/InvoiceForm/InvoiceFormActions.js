@@ -19,3 +19,10 @@ export function changeNotes(notes) {
         type: ACTIONS.INVOICE_FORM_CHANGE_NOTES
     };
 }
+
+export function changeDueDate(date) {
+    return {
+        unixTimestamp: date.getTime() / 1000,
+        type: ACTIONS.INVOICE_FORM_CHANGE_DUE_DATE
+    };
+}

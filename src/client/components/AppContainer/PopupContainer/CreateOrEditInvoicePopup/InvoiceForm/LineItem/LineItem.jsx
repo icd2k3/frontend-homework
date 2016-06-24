@@ -100,7 +100,7 @@ export default class LineItem extends React.Component {
                                       />
                                 }
                                 <InputGroup.Addon className={styles.rowTotal}>Total: ${convertNumberToCurrency(Number(this.props.lineItem.get('total')))}</InputGroup.Addon>
-                                <Button bsStyle="danger" onClick={this.onRemoveClick.bind(this)}><Glyphicon glyph="trash"/></Button>
+                                <Button bsStyle="danger" className={styles.remove} onClick={this.onRemoveClick.bind(this)}><Glyphicon glyph="trash"/></Button>
                             </InputGroup>
                         </FormGroup>
                     </Form>
