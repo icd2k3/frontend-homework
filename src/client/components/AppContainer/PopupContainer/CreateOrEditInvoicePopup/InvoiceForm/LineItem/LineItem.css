@@ -1,0 +1,33 @@
+.root {
+	margin-bottom: 5px;
+}
+
+.root:last-child {
+	margin-bottom: 10px;
+}
+
+.total {
+	text-align: right;
+	font-size: 1.5em;
+}
+
+.dropdownButton {
+	min-width: 141px;
+}
+
+.inputGroup {
+	width: 50%;
+}
+
+.formControl {
+	border-radius: 0;
+	border-right: 0;
+}
+
+.formGroup {
+	width: 100%;
+}
+
+.rowTotal {
+	border-left: 1px solid #ccc !important;
+}

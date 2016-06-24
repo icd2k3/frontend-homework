@@ -1,0 +1,11 @@
+@import '../../../common/styles/variables.css';
+
+.sortBar {
+	background: $purple;
+	color: #fff;
+	padding: 7px 0;
+}
+
+.sort {
+	font-size: 0.9em;
+}

@@ -1,0 +1,19 @@
+@import '../../../common/styles/variables.css';
+
+.titleBar {
+	padding-top: $verticalPadding;
+	padding-bottom: $verticalPadding;
+	display: flex;
+	align-items: center;
+}
+
+.title {
+	font-weight: 600;
+    letter-spacing: 0.05em;
+    font-size: 2em;
+    margin: 0;
+}
+
+.button {
+	margin-left: auto;
+}
