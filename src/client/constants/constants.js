@@ -11,5 +11,6 @@ export const
         LINE_ITEM_CHANGE_NOTE: null,
         LINE_ITEM_CHANGE_RATE: null,
         LINE_ITEM_CHANGE_TYPE: null,
+        LINE_ITEM_REMOVE: null,
         TITLE_ADD_NEW_INVOICE: null
     }));

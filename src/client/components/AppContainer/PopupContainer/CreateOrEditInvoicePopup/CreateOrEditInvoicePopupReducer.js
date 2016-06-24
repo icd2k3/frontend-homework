@@ -84,6 +84,13 @@ export default function(
         return newState
             .setIn(['invoice', 'total'], getTotal(newState));
 
+    case ACTIONS.LINE_ITEM_REMOVE:
+        newState = state
+            .deleteIn(findLineItemLocation(action.id));
+
+        return newState
+            .setIn(['invoice', 'total'], getTotal(newState));
+
     default:
         return state;
     }

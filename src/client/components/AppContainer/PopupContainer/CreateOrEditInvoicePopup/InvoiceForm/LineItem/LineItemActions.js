@@ -40,3 +40,10 @@ export function changeExpense(id, expense) {
         type: ACTIONS.LINE_ITEM_CHANGE_EXPENSE
     };
 }
+
+export function remove(id) {
+    return {
+        id,
+        type: ACTIONS.LINE_ITEM_REMOVE
+    };
+}

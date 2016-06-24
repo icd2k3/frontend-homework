@@ -3,11 +3,13 @@ import { connect } from 'react-redux';
 import ImmutablePropTypes from 'react-immutable-proptypes';
 import { convertNumberToCurrency } from 'utils';
 import {
+    Button,
     Col,
     DropdownButton,
     Form,
     FormControl,
     FormGroup,
+    Glyphicon,
     InputGroup,
     MenuItem,
     Row
@@ -36,6 +38,10 @@ export default class LineItem extends React.Component {
 
     onExpenseChange(event) {
         this.props.dispatch(LineItemActions.changeExpense(this.props.lineItem.get('id'), event.target.value));
+    }
+
+    onRemoveClick() {
+        this.props.dispatch(LineItemActions.remove(this.props.lineItem.get('id')));
     }
 
     render() {
@@ -94,6 +100,7 @@ export default class LineItem extends React.Component {
                                       />
                                 }
                                 <InputGroup.Addon className={styles.rowTotal}>Total: ${convertNumberToCurrency(Number(this.props.lineItem.get('total')))}</InputGroup.Addon>
+                                <Button bsStyle="danger" onClick={this.onRemoveClick.bind(this)}><Glyphicon glyph="trash"/></Button>
                             </InputGroup>
                         </FormGroup>
                     </Form>

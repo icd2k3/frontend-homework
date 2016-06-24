@@ -86,6 +86,6 @@ body {
 
 @media (min-width: 992px) {
 	:global .modal-lg {
-	    width: 700px;
+	    width: 775px;
 	}
 }
