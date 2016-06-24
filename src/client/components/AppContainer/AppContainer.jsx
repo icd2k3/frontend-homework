@@ -36,6 +36,7 @@ AppContainer.propTypes = {
 
 function mapStateToProps(state) {
     return {
+        InvoicesContainerReducer: state.get('InvoicesContainerReducer'),
         PopupContainerReducer: state.get('PopupContainerReducer')
     };
 }

@@ -1,5 +1,6 @@
 import immutable from 'immutable';
 import { ACTIONS } from 'constants';
+import { generateId } from 'utils';
 
 export default function(
     state = immutable.fromJS({
@@ -10,7 +11,7 @@ export default function(
 
     case ACTIONS.CREATE_OR_EDIT_INVOICE_POPUP_CREATE:
         return state
-            .set('invoices', (state.get('invoices') || immutable.fromJS([])).push(action.invoice));
+            .set('invoices', (state.get('invoices') || immutable.fromJS([])).push(action.invoice.set('id', generateId())));
 
     default:
         return state;

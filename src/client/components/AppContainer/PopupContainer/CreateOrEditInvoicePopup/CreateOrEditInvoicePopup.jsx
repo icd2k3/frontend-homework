@@ -11,20 +11,30 @@ import InvoiceForm from './InvoiceForm/InvoiceForm.jsx';
 
 class CreateOrEditInvoicePopup extends React.Component {
 
+    componentWillUnmount() {
+        this.props.dispatch(CreateOrEditInvoicePopupActions.reset());
+    }
+
     onCreateClick() {
         this.props.dispatch(
             CreateOrEditInvoicePopupActions.create(
                 this.props.CreateOrEditInvoicePopupReducer.get('invoice')
             )
         );
+        //this.props.dispatch(CreateOrEditInvoicePopupActions.close());
     }
 
     onSaveClick() {
 
     }
 
+    onCancelClick() {
+        this.props.dispatch(CreateOrEditInvoicePopupActions.close());
+    }
+
     render() {
-        const invoice = this.props.CreateOrEditInvoicePopupReducer.get('invoice'),
+        const errors = this.props.CreateOrEditInvoicePopupReducer.get('errors'),
+            invoice = this.props.CreateOrEditInvoicePopupReducer.get('invoice'),
             isEditMode = this.props.CreateOrEditInvoicePopupReducer.get('editMode');
 
         return (
@@ -33,10 +43,10 @@ class CreateOrEditInvoicePopup extends React.Component {
                     <Modal.Title>{isEditMode ? 'Edit' : 'Create'} Invoice</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
-                    <InvoiceForm invoice={invoice} />
+                    <InvoiceForm errors={errors} invoice={invoice} />
                 </Modal.Body>
                 <Modal.Footer>
-                    <Button>Cancel</Button>
+                    <Button onClick={this.onCancelClick.bind(this)}>Cancel</Button>
                     <Button bsStyle="primary" onClick={isEditMode ? this.onSaveClick.bind(this) : this.onCreateClick.bind(this)}>
                         {isEditMode
                             ? <span><Glyphicon glyph="save-file"/> Save Invoice</span>
@@ -54,6 +64,7 @@ CreateOrEditInvoicePopup.displayName = 'CreateOrEditInvoicePopup';
 CreateOrEditInvoicePopup.propTypes = {
     CreateOrEditInvoicePopupReducer: ImmutablePropTypes.mapContains({
         editMode: PropTypes.bool,
+        errors: ImmutablePropTypes.map,
         invoice: ImmutablePropTypes.map.isRequired
     }).isRequired,
     dispatch: PropTypes.func.isRequired

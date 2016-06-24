@@ -5,6 +5,7 @@ import { ACTIONS } from 'constants';
 export default function(
     state = immutable.fromJS({
         editMode: false,
+        errors: {},
         invoice: {}
     }), action = {}) {
     let newState;
@@ -33,7 +34,8 @@ export default function(
 
     case ACTIONS.INVOICE_FORM_CHANGE_NAME:
         return state
-            .setIn(['invoice', 'name'], action.name);
+            .setIn(['invoice', 'name'], action.name)
+            .deleteIn(['errors', 'name']);
 
     case ACTIONS.INVOICE_FORM_CHANGE_NOTES:
         return state
@@ -41,7 +43,8 @@ export default function(
 
     case ACTIONS.INVOICE_FORM_CHANGE_DUE_DATE:
         return state
-            .setIn(['invoice', 'dueDate'], action.unixTimestamp);
+            .setIn(['invoice', 'dueDate'], action.unixTimestamp)
+            .deleteIn(['errors', 'dueDate']);
 
     case ACTIONS.INVOICE_FORM_ADD_LINE_ITEM:
         const currentLineItems = immutable.fromJS(state.get('invoice').get('lineItems') || []);
@@ -50,7 +53,8 @@ export default function(
             .setIn(['invoice', 'lineItems'], currentLineItems.push(immutable.fromJS({
                 id: generateId(),
                 type: 'labor'
-            })));
+            })))
+            .deleteIn(['errors', 'lineItems']);
 
     case ACTIONS.LINE_ITEM_CHANGE_TYPE:
         newState = state
@@ -102,6 +106,22 @@ export default function(
 
         return newState
             .setIn(['invoice', 'total'], getTotal(newState));
+
+    case ACTIONS.CREATE_OR_EDIT_INVOICE_POPUP_CREATE:
+        return state
+            .set('errors', null);
+
+    case ACTIONS.CREATE_OR_EDIT_INVOICE_POPUP_ERROR:
+        return state
+            .set('errors', immutable.fromJS(action.errors));
+
+    case ACTIONS.CREATE_OR_EDIT_INVOICE_POPUP_RESET:
+        return state
+            .merge({
+                editMode: false,
+                errors: {},
+                invoice: {}
+            });
 
     default:
         return state;

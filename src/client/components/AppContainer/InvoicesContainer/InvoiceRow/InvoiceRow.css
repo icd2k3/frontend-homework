@@ -1,0 +1,9 @@
+@import '../../../common/styles/variables.css';
+
+.root {
+	background: #fff;
+
+	&:nth-child(even) {
+		background: $gray;
+	}
+}

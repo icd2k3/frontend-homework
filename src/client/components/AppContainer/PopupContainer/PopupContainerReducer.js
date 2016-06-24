@@ -13,6 +13,9 @@ export default function(
     case ACTIONS.TITLE_ADD_NEW_INVOICE:
         return state.setIn(['activePopups', 'createOrEditInvoicePopup'], true);
 
+    case ACTIONS.CREATE_OR_EDIT_INVOICE_POPUP_CLOSE:
+        return state.setIn(['activePopups', 'createOrEditInvoicePopup'], false);
+
     default:
         return state;
     }

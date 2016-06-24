@@ -37,10 +37,18 @@ body {
 	}
 }
 
-:global .btn.ghost {
+:global .btn-primary.ghost,
+:global .btn-primary.ghost:active:hover {
 	background: transparent;
 	border: 1px solid $blue;
 	color: $blue;
+}
+
+:global .btn-danger.ghost,
+:global .btn-danger.ghost:active:hover {
+	background: transparent;
+	border: 1px solid $red;
+	color: $red;
 }
 
 :global .modal-footer {
@@ -80,6 +88,14 @@ body {
     position: absolute;
     right: 10px;
     top: 15px;
+}
+
+:global .has-error .control-label {
+	color: $red;
+}
+:global .has-error .form-control,
+:global .form-group.has-error .rw-datetimepicker {
+	border: 1px solid $red;
 }
 
 @media (min-width: 992px) {

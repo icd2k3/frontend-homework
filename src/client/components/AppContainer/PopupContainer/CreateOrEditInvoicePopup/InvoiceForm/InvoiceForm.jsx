@@ -36,11 +36,15 @@ export default class InvoiceForm extends React.Component {
     }
 
     render() {
+        const errorName = this.props.errors && this.props.errors.get('name'),
+            errorLineItems = this.props.errors && this.props.errors.get('lineItems'),
+            errorDueDate = this.props.errors && this.props.errors.get('dueDate');
+
         return (
             <Grid fluid>
                 <Row>
-                    <Col xs={12}>
-                        <FormGroup controlId='name'>
+                    <Col xs={6}>
+                        <FormGroup controlId='name' validationState={errorName ? 'error' : null}>
                             <ControlLabel>Invoice Name</ControlLabel>
                             <FormControl
                                 onChange={this.onChangeName.bind(this)}
@@ -49,27 +53,15 @@ export default class InvoiceForm extends React.Component {
                             />
                         </FormGroup>
                     </Col>
+                    <Col xs={6}>
+                        <FormGroup controlId="lineItems" validationState={errorDueDate ? 'error' : null}>
+                            <ControlLabel>Due Date</ControlLabel>
+                            <DateTimePicker onChange={this.onChangeDueDate.bind(this)}/>
+                        </FormGroup>
+                    </Col>
                 </Row>
                 <Row>
                     <Col xs={12}>
-                        <ControlLabel>Line Items</ControlLabel>
-                        {this.props.invoice.get('lineItems') && this.props.invoice.get('lineItems').map((lineItem) => {
-                            return (<LineItem key={lineItem.get('id')} lineItem={lineItem} />);
-                        })}
-                    </Col>
-                </Row>
-                <Row className={styles.lineItemsFooter}>
-                    <Col xs={6}>
-                        <Button bsSize="small" bsStyle="primary" className="ghost" onClick={this.onAddNewLineItemClick.bind(this)}>
-                            <Glyphicon glyph="plus"/> Add New Line Item
-                        </Button>
-                    </Col>
-                    <Col className={styles.total} xs={6}>
-                        Grand Total: ${this.props.invoice.get('total') || 0.00}
-                    </Col>
-                </Row>
-                <Row>
-                    <Col xs={6}>
                         <FormGroup controlId='notes'>
                             <ControlLabel>Notes</ControlLabel>
                             <FormControl
@@ -79,9 +71,30 @@ export default class InvoiceForm extends React.Component {
                             />
                         </FormGroup>
                     </Col>
+                </Row>
+                <Row>
+                    <Col xs={12}>
+                        <FormGroup controlId="lineItems" validationState={errorLineItems ? 'error' : null}>
+                            <ControlLabel>Line Items</ControlLabel>
+                            {this.props.invoice.get('lineItems') && this.props.invoice.get('lineItems').map((lineItem) => {
+                                return (<LineItem key={lineItem.get('id')} lineItem={lineItem} />);
+                            })}
+                        </FormGroup>
+                    </Col>
+                </Row>
+                <Row className={styles.lineItemsFooter}>
                     <Col xs={6}>
-                        <ControlLabel>Due Date</ControlLabel>
-                        <DateTimePicker onChange={this.onChangeDueDate.bind(this)}/>
+                        <Button
+                            bsSize="small"
+                            bsStyle={errorLineItems ? 'danger' : 'primary'}
+                            className="ghost"
+                            onClick={this.onAddNewLineItemClick.bind(this)}
+                        >
+                            <Glyphicon glyph="plus"/> Add New Line Item
+                        </Button>
+                    </Col>
+                    <Col className={styles.total} xs={6}>
+                        Grand Total: ${this.props.invoice.get('total') || 0.00}
                     </Col>
                 </Row>
             </Grid>
@@ -93,6 +106,7 @@ InvoiceForm.displayName = 'InvoiceForm';
 
 InvoiceForm.propTypes = {
     dispatch: PropTypes.func.isRequired,
+    errors: ImmutablePropTypes.map,
     invoice: ImmutablePropTypes.mapContains({
         dueDate: ImmutablePropTypes.number,
         lineItems: ImmutablePropTypes.list,
