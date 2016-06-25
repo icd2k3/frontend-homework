@@ -37,12 +37,12 @@ export default function(
     switch (action.type) {
 
     case ACTIONS.CREATE_OR_EDIT_INVOICE_POPUP_CREATE:
-        return state
-            .set('invoices', (state.get('invoices') || immutable.fromJS([])).push(action.invoice.set('id', generateId())));
+        return getSortedState(state
+            .set('invoices', (state.get('invoices') || immutable.fromJS([])).push(action.invoice.set('id', generateId()))));
 
     case ACTIONS.CREATE_OR_EDIT_INVOICE_POPUP_SAVE:
-        return state
-            .setIn(findInvoiceLocation(action.invoice.get('id')), action.invoice);
+        return getSortedState(state
+            .setIn(findInvoiceLocation(action.invoice.get('id')), action.invoice));
 
     case ACTIONS.SORT_BY:
         return getSortedState(state
