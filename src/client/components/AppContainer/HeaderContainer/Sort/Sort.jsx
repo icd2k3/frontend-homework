@@ -18,6 +18,8 @@ class Sort extends React.Component {
                 <Col
                     className={styles.sort}
                     onClick={this.props.dispatch.bind(this, SortActions.sortBy('name'))}
+                    lg={6}
+                    sm={5}
                     xs={6}
                 >
                     Name {this.props.sortParam === 'name' ? sortArrow : null}
@@ -25,26 +27,31 @@ class Sort extends React.Component {
                 <Col
                     className={styles.sort}
                     onClick={this.props.dispatch.bind(this, SortActions.sortBy('total'))}
-                    xs={2}
+                    sm={2}
+                    xsHidden
                 >
                     Total {this.props.sortParam === 'total' ? sortArrow : null}
                 </Col>
                 <Col
                     className={styles.sort}
                     onClick={this.props.dispatch.bind(this, SortActions.sortBy('dueDate'))}
-                    xs={2}
+                    sm={2}
+                    xsHidden
                 >
                     Due  {this.props.sortParam === 'dueDate' ? sortArrow : null}
                 </Col>
                 <Col
                     className={styles.colCenter}
-                    xs={1}
+                    sm={1}
+                    xs={3}
                 >
                     Status
                 </Col>
                 <Col
-                    className={styles.colCenter}
-                    xs={1}
+                    className={styles.colRight}
+                    lg={1}
+                    sm={2}
+                    xs={3}
                 >
                     Send
                 </Col>

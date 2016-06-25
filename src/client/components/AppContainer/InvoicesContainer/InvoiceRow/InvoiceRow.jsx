@@ -39,19 +39,38 @@ class InvoiceRow extends React.Component {
 
         return (
             <Row className={styles.root} onClick={this.onInvoiceClick.bind(this)}>
-                <Col xs={6}>
+                <Col
+                    lg={6}
+                    sm={5}
+                    xs={6}
+                >
                     <span>{this.props.invoice.get('name')}</span>
                 </Col>
-                <Col xs={2}>
+                <Col
+                    sm={2}
+                    xsHidden
+                >
                     ${convertNumberToCurrency(this.props.invoice.get('total')) || '0.00'}
                 </Col>
-                <Col xs={2}>
+                <Col
+                    sm={2}
+                    xsHidden
+                >
                     {formattedDueDate}
                 </Col>
-                <Col className={styles.colCenter} xs={1}>
+                <Col
+                    className={styles.colCenter}
+                    sm={1}
+                    xs={3}
+                >
                     {statusNode}
                 </Col>
-                <Col xs={1}>
+                <Col
+                    className={styles.colRight}
+                    lg={1}
+                    sm={2}
+                    xs={3}
+                >
                     <Button bsSize="xsmall" bsStyle="primary" className="ghost"><Glyphicon glyph="send"/> Send</Button>
                 </Col>
             </Row>
