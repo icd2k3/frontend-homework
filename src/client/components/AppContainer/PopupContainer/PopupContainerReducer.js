@@ -4,7 +4,8 @@ import { ACTIONS } from 'constants';
 export default function(
     state = immutable.fromJS({
         activePopups: {
-            createOrEditInvoicePopup: false
+            createOrEditInvoicePopup: false,
+            sendInvoicePopup: false
         }
     }), action = {}) {
 
@@ -21,6 +22,12 @@ export default function(
     case ACTIONS.CREATE_OR_EDIT_INVOICE_POPUP_SAVE:
     case ACTIONS.INVOICE_FORM_EDIT_OPTIONS_DELETE:
         return state.setIn(['activePopups', 'createOrEditInvoicePopup'], false);
+
+    case ACTIONS.INVOICE_ROW_SEND_INVOICE:
+        return state.setIn(['activePopups', 'sendInvoicePopup'], true);
+
+    case ACTIONS.SEND_INVOICE_POPUP_CLOSE:
+        return state.setIn(['activePopups', 'sendInvoicePopup'], false);
 
     default:
         return state;

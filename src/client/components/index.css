@@ -16,7 +16,6 @@ body {
 	color: $black;
 	font-family: "canada-type-gibson", helvetica, arial, sans-serif;
     font-size: 13px;
-    letter-spacing: 0.07em;
 }
 
 :global .btn {
@@ -46,6 +45,13 @@ body {
 		background: $darkBlue;
 		color: $white;
 	}
+}
+
+:global .label-default {
+	font-size: 1em;
+    font-weight: normal;
+    background: $darkerGray;
+    letter-spacing: 0.02em;
 }
 
 :global .modal {

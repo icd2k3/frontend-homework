@@ -20,6 +20,11 @@ class InvoiceRow extends React.Component {
         this.props.dispatch(InvoiceRowActions.edit(this.props.invoice));
     }
 
+    onSendClick(event) {
+        event.stopPropagation();
+        this.props.dispatch(InvoiceRowActions.send(this.props.invoice));
+    }
+
     render() {
         const dueDate            = new Date(this.props.invoice.get('dueDate') * 1000),
             formattedDueDate     = moment(dueDate).format('MMM Do YYYY'),
@@ -71,7 +76,14 @@ class InvoiceRow extends React.Component {
                     sm={2}
                     xs={3}
                 >
-                    <Button bsSize="xsmall" bsStyle="primary" className="ghost"><Glyphicon glyph="send"/> Send</Button>
+                    <Button
+                        bsSize="xsmall"
+                        bsStyle="primary"
+                        className="ghost"
+                        onClick={this.onSendClick.bind(this)}
+                    >
+                        <Glyphicon glyph="send"/> Send
+                    </Button>
                 </Col>
             </Row>
         );

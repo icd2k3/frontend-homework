@@ -1,0 +1,51 @@
+@import '../../../../common/styles/variables.css';
+
+.preview {
+	background: $white;
+	box-shadow: -4px 6px 11px -4px rgba(0,0,0,0.5);
+	padding: $padding;
+	position: relative;
+	width: 80%;
+	margin: 0 auto;
+	&:before {
+		border-color: $gray $gray $white $white;
+		border-style: solid;
+		border-width: 0 30px 30px 0;
+		content: "";
+		position: absolute;
+		right: 0;
+		top: 0;
+		width: 0;
+    	box-shadow: -2px 2px 2px 0px rgba(0,0,0,0.3);
+    	display: block;
+	}
+}
+
+.row {
+	align-items: flex-end;
+	display: flex;
+}
+
+.name {
+	font-size: 2em;
+	margin: 0;
+}
+
+.due {
+	text-align: right;
+}
+
+.notes {
+	line-height: 20px;
+}
+
+.lineItemsTitle {
+	font-size: 1.5em;
+	margin: $padding 0 0 0;
+	text-align: right;
+}
+
+.edit {
+	text-align: center;
+	margin-top: $padding;
+}

@@ -89,7 +89,7 @@ export default function(
                 id: generateId(),
                 lineItems,
                 name: sillyname(),
-                notes: 'Random note test',
+                notes: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam a orci ut magna lobortis varius in et ex. Fusce accumsan finibus consequat. Suspendisse tellus sapien, rutrum ultricies enim at, aliquet vestibulum orci.',
                 total: grandTotal
             }));
         }
