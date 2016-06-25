@@ -17,8 +17,8 @@ class Sort extends React.Component {
             <Row className={styles.sortBar}>
                 <Col
                     className={styles.sort}
-                    onClick={this.props.dispatch.bind(this, SortActions.sortBy('name'))}
                     lg={6}
+                    onClick={this.props.dispatch.bind(this, SortActions.sortBy('name'))}
                     sm={5}
                     xs={6}
                 >
