@@ -1,6 +1,9 @@
 import React, { PropTypes } from 'react';
 import ImmutablePropTypes from 'react-immutable-proptypes';
+import { connect } from 'react-redux';
 import moment from 'moment';
+import { convertNumberToCurrency } from 'utils';
+import * as InvoiceRowActions from './InvoiceRowActions.js';
 import {
     Button,
     Col,
@@ -11,11 +14,10 @@ import {
 
 import styles from './InvoiceRow.css';
 
-export default class InvoiceRow extends React.Component {
+class InvoiceRow extends React.Component {
 
     onInvoiceClick() {
-        console.log('Open view/edit popup');
-        console.log(this.props.invoice.get('id'));
+        this.props.dispatch(InvoiceRowActions.edit(this.props.invoice));
     }
 
     render() {
@@ -38,7 +40,7 @@ export default class InvoiceRow extends React.Component {
                     <span>{this.props.invoice.get('name')}</span>
                 </Col>
                 <Col xs={2}>
-                    ${this.props.invoice.get('total') || '0.00'}
+                    ${convertNumberToCurrency(this.props.invoice.get('total')) || '0.00'}
                 </Col>
                 <Col xs={2}>
                     {formattedDueDate}
@@ -57,10 +59,16 @@ export default class InvoiceRow extends React.Component {
 InvoiceRow.displayName = 'InvoiceRow';
 
 InvoiceRow.propTypes = {
+    dispatch: PropTypes.func.isRequired,
     invoice: ImmutablePropTypes.mapContains({
+        dueDate: PropTypes.number.isRequired,
         id: PropTypes.string.isRequired,
-        name: PropTypes.string.isRequired,
         lineItems: ImmutablePropTypes.list.isRequired,
-        dueDate: PropTypes.number.isRequired
+        name: PropTypes.string.isRequired,
+        total: PropTypes.number.isRequired
     }).isRequired
 };
+
+export default connect(() => {
+    return {};
+})(InvoiceRow);

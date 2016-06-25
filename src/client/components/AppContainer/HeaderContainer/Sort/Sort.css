@@ -7,6 +7,18 @@
 	padding: 7px 0;
 }
 
+.sort {
+	cursor: pointer;
+	&:hover,
+	&:focus {
+		text-decoration: underline;
+	}
+}
+
+.sortArrow {
+	font-size: 0.8em;
+}
+
 .colCenter {
 	text-align: center;
 }

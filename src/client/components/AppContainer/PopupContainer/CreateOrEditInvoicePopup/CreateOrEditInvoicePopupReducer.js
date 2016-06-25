@@ -1,5 +1,5 @@
 import immutable from 'immutable';
-import { generateId, convertNumberToCurrency } from 'utils';
+import { generateId } from 'utils';
 import { ACTIONS } from 'constants';
 
 export default function(
@@ -27,10 +27,17 @@ export default function(
                 total += Number(lineItem.get('total') || 0);
             });
 
-        return convertNumberToCurrency(total);
+        return total;
     }
 
     switch (action.type) {
+
+    case ACTIONS.INVOICE_ROW_EDIT_INVOICE:
+        return state
+            .merge({
+                invoice: action.invoice,
+                editMode: true
+            });
 
     case ACTIONS.INVOICE_FORM_CHANGE_NAME:
         return state

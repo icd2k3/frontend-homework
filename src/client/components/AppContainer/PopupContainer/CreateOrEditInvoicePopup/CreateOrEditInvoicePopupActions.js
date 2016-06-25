@@ -26,6 +26,16 @@ export function create(invoice) {
     };
 }
 
+export function save(invoice) {
+    const errors = getInvoiceValidationErrors(invoice);
+
+    return {
+        errors,
+        invoice,
+        type: errors ? ACTIONS.CREATE_OR_EDIT_INVOICE_POPUP_ERROR : ACTIONS.CREATE_OR_EDIT_INVOICE_POPUP_SAVE
+    };
+}
+
 export function close() {
     return {
         type: ACTIONS.CREATE_OR_EDIT_INVOICE_POPUP_CLOSE

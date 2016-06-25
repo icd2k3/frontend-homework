@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import {
     Grid
 } from 'react-bootstrap';
@@ -16,10 +16,18 @@ export default class HeaderContainer extends React.Component {
         return (
             <Grid className={styles.root} fluid>
                 <Title/>
-                <Sort/>
+                <Sort
+                    sortOrder={this.props.sortOrder}
+                    sortParam={this.props.sortParam}
+                />
             </Grid>
         );
     }
 }
 
 HeaderContainer.displayName = 'HeaderContainer';
+
+HeaderContainer.propTypes = {
+    sortOrder: PropTypes.string.isRequired,
+    sortParam: PropTypes.string.isRequired
+};

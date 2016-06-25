@@ -1,6 +1,7 @@
 import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
 import ImmutablePropTypes from 'react-immutable-proptypes';
+import { convertNumberToCurrency } from 'utils';
 import {
     Button,
     Col,
@@ -47,6 +48,7 @@ export default class InvoiceForm extends React.Component {
                         <FormGroup controlId='name' validationState={errorName ? 'error' : null}>
                             <ControlLabel>Invoice Name</ControlLabel>
                             <FormControl
+                                defaultValue={this.props.invoice.get('name')}
                                 onChange={this.onChangeName.bind(this)}
                                 placeholder="Name your new invoice"
                                 type="text"
@@ -56,7 +58,10 @@ export default class InvoiceForm extends React.Component {
                     <Col xs={6}>
                         <FormGroup controlId="lineItems" validationState={errorDueDate ? 'error' : null}>
                             <ControlLabel>Due Date</ControlLabel>
-                            <DateTimePicker onChange={this.onChangeDueDate.bind(this)}/>
+                            <DateTimePicker
+                                onChange={this.onChangeDueDate.bind(this)}
+                                value={new Date(this.props.invoice.get('dueDate') * 1000)}
+                            />
                         </FormGroup>
                     </Col>
                 </Row>
@@ -66,6 +71,7 @@ export default class InvoiceForm extends React.Component {
                             <ControlLabel>Notes</ControlLabel>
                             <FormControl
                                 componentClass="textarea"
+                                defaultValue={this.props.invoice.get('notes')}
                                 onChange={this.onChangeNotes.bind(this)}
                                 placeholder="Add some notes to this invoice. Such as payment options, etc."
                             />
@@ -94,7 +100,7 @@ export default class InvoiceForm extends React.Component {
                         </Button>
                     </Col>
                     <Col className={styles.total} xs={6}>
-                        Grand Total: ${this.props.invoice.get('total') || 0.00}
+                        Grand Total: ${convertNumberToCurrency(this.props.invoice.get('total')) || '0.00'}
                     </Col>
                 </Row>
             </Grid>
@@ -112,7 +118,7 @@ InvoiceForm.propTypes = {
         lineItems: ImmutablePropTypes.list,
         name: PropTypes.string,
         notes: PropTypes.string,
-        total: PropTypes.string
+        total: PropTypes.number
     }).isRequired
 };
 

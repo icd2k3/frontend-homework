@@ -118,7 +118,7 @@ LineItem.propTypes = {
         hours: PropTypes.string,
         id: PropTypes.string.isRequired,
         rate: PropTypes.string,
-        total: PropTypes.string,
+        total: PropTypes.number,
         type: PropTypes.oneOf(['labor', 'materials', 'expenses', 'other']).isRequired
     }).isRequired
 };

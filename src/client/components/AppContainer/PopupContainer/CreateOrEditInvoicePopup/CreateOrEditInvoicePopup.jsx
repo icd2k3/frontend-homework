@@ -24,7 +24,11 @@ class CreateOrEditInvoicePopup extends React.Component {
     }
 
     onSaveClick() {
-
+        this.props.dispatch(
+            CreateOrEditInvoicePopupActions.save(
+                this.props.CreateOrEditInvoicePopupReducer.get('invoice')
+            )
+        );
     }
 
     onCancelClick() {

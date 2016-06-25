@@ -15,7 +15,10 @@ export default class AppContainer extends React.Component {
     render() {
         return (
             <Grid className={styles.root} fluid>
-                <HeaderContainer/>
+                <HeaderContainer
+                    sortParam={this.props.InvoicesContainerReducer.get('sortParam')}
+                    sortOrder={this.props.InvoicesContainerReducer.get('sortOrder')}
+                />
                 <InvoicesContainer InvoicesContainerReducer={this.props.InvoicesContainerReducer}/>
                 <FooterContainer/>
                 <PopupContainer PopupContainerReducer={this.props.PopupContainerReducer}/>
