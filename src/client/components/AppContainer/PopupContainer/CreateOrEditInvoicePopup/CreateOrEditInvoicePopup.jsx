@@ -46,7 +46,11 @@ class CreateOrEditInvoicePopup extends React.Component {
                     <Modal.Title>{isEditMode ? 'Edit' : 'Create'} Invoice</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
-                    <InvoiceForm isEditMode={isEditMode} errors={errors} invoice={invoice} />
+                    <InvoiceForm
+                        errors={errors}
+                        invoice={invoice}
+                        isEditMode={isEditMode}
+                    />
                 </Modal.Body>
                 <Modal.Footer>
                     <Button onClick={this.onCancelClick.bind(this)}>Cancel</Button>

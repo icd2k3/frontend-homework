@@ -120,7 +120,13 @@ export default class InvoiceForm extends React.Component {
                             <FormGroup controlId="options">
                                 <ControlLabel>Delete Invoice</ControlLabel>
                                 <div>
-                                    <Button className="ghost" bsStyle="danger" onClick={this.onDeleteClick.bind(this)}><Glyphicon glyph="trash"/> Delete This Invoice</Button>
+                                    <Button
+                                        bsStyle="danger"
+                                        className="ghost"
+                                        onClick={this.onDeleteClick.bind(this)}
+                                    >
+                                        <Glyphicon glyph="trash"/> Delete This Invoice
+                                    </Button>
                                 </div>
                             </FormGroup>
                         </Col>
