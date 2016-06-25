@@ -3,6 +3,7 @@ import ImmutablePropTypes from 'react-immutable-proptypes';
 import {
     Grid
 } from 'react-bootstrap';
+import NoInvoicesCTA from './NoInvoicesCTA/NoInvoicesCTA.jsx';
 import InvoiceRow from './InvoiceRow/InvoiceRow.jsx';
 
 import styles from './InvoicesContainer.css';
@@ -20,6 +21,10 @@ export default class InvoicesContainer extends React.Component {
                 {invoices && invoices.map((invoice) => {
                     return <InvoiceRow invoice={invoice} key={invoice.get('id')} />;
                 })}
+                {invoices && invoices.size
+                    ? null
+                    : <NoInvoicesCTA/>
+                }
             </Grid>
         );
     }

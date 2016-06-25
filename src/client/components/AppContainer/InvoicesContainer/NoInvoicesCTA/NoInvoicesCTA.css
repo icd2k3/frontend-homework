@@ -1,0 +1,8 @@
+@import '../../../common/styles/variables.css';
+
+.root {
+	background: transparent;
+	border: 4px dashed $gray;
+	margin-top: $padding;
+	text-align: center;
+}

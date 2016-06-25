@@ -6,14 +6,18 @@ import {
 } from 'react-bootstrap';
 import HeaderContainer from './HeaderContainer/HeaderContainer.jsx';
 import InvoicesContainer from './InvoicesContainer/InvoicesContainer.jsx';
+import FooterContainer from './FooterContainer/FooterContainer.jsx';
 import PopupContainer from './PopupContainer/PopupContainer.jsx';
+
+import styles from './AppContainer.css';
 
 export default class AppContainer extends React.Component {
     render() {
         return (
-            <Grid className="AppContainer" fluid>
+            <Grid className={styles.root} fluid>
                 <HeaderContainer/>
                 <InvoicesContainer InvoicesContainerReducer={this.props.InvoicesContainerReducer}/>
+                <FooterContainer/>
                 <PopupContainer PopupContainerReducer={this.props.PopupContainerReducer}/>
             </Grid>
         );

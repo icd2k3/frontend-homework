@@ -36,6 +36,7 @@
     "redux": "^3.5.2",
     "redux-immutable": "^3.0.6",
     "redux-logger": "^2.6.1",
+    "sillyname": "^0.1.0",
     "style-loader": "^0.13.1",
     "webpack": "^1.13.1"
   },

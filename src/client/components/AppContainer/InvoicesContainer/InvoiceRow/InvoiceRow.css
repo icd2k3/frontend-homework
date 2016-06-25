@@ -1,9 +1,33 @@
 @import '../../../common/styles/variables.css';
 
 .root {
+	align-items: center;
 	background: #fff;
+	cursor: pointer;
+	display: flex;
+	min-height: 50px;
 
 	&:nth-child(even) {
 		background: $gray;
 	}
+
+	&:before {
+		background: $purple;
+		content: '';
+		display: inline-block;
+		height: 50px;
+		transition: width 0.2s $easeOutQuad;
+		width: 0px;
+	}
+
+	&:hover,
+	&:focus {
+		&:before {
+			width: 10px;
+		}
+	}
+}
+
+.colCenter {
+	text-align: center;
 }

@@ -5,6 +5,13 @@
 
 @import 'common/styles/variables.css';
 
+body, html {
+	height: 100%;
+}
+:global #app {
+	height: 100%;
+}
+
 body {
 	color: $black;
 	font-family: "canada-type-gibson", helvetica, arial, sans-serif;
@@ -19,6 +26,10 @@ body {
     outline: none !important;
     padding: 0.6em 1.4em;
     white-space: nowrap;
+}
+
+:global .btn-default {
+	background: $gray;
 }
 
 :global .btn-primary {
@@ -37,11 +48,26 @@ body {
 	}
 }
 
-:global .btn-primary.ghost,
-:global .btn-primary.ghost:active:hover {
+:global .modal {
+	background: rgba(0,0,0,0.3);
+}
+
+:global .btn-default.ghost {
+	background: transparent;
+	border: 1px solid $white;
+	color: $white;
+}
+
+:global .btn-primary.ghost {
 	background: transparent;
 	border: 1px solid $blue;
 	color: $blue;
+	&:hover,
+	&:focus,
+	&:active:hover {
+		background: $blue;
+		color: $white;
+	}
 }
 
 :global .btn-danger.ghost,

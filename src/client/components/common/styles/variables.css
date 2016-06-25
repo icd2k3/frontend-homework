@@ -9,4 +9,8 @@ $purple     : #7C6CF2;
 $red        : #d9534f;
 $white      : #fff;
 
-$verticalPadding: 30px;
+$padding      : 30px;
+$footerHeight : 100px;
+$headerHeight : 127px;
+
+$easeOutQuad: cubic-bezier(0.250, 0.460, 0.450, 0.940);
