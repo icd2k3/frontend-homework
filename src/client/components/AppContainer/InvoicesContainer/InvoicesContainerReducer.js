@@ -51,6 +51,10 @@ export default function(
                 sortParam: action.sortParam
             }));
 
+    case ACTIONS.INVOICE_FORM_DELETE:
+        return state
+            .deleteIn(findInvoiceLocation(action.id));
+
     case ACTIONS.FOOTER_CONTAINER_RANDOMLY_GENERATE_INVOICES:
     case ACTIONS.NO_INVOICES_CTA_RANDOMLY_GENERATE_INVOICES:
         const randomInvoices = [],

@@ -33,3 +33,10 @@ export function changePaymentStatus(paymentStatus) {
         type: ACTIONS.INVOICE_FORM_CHANGE_PAYMENT_STATUS
     };
 }
+
+export function del(id) {
+    return {
+        id,
+        type: ACTIONS.INVOICE_FORM_DELETE
+    };
+}

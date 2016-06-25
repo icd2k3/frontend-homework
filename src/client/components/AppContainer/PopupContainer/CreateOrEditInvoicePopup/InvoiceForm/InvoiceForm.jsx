@@ -42,6 +42,10 @@ export default class InvoiceForm extends React.Component {
         this.props.dispatch(InvoiceFormActions.changePaymentStatus(paymentStatus));
     }
 
+    onDeleteClick() {
+        this.props.dispatch(InvoiceFormActions.del(this.props.invoice.get('id')));
+    }
+
     render() {
         const errorName = this.props.errors && this.props.errors.get('name'),
             errorLineItems = this.props.errors && this.props.errors.get('lineItems'),
@@ -114,10 +118,9 @@ export default class InvoiceForm extends React.Component {
                     ? <Row>
                         <Col xs={6}>
                             <FormGroup controlId="options">
-                                <ControlLabel>Options</ControlLabel>
+                                <ControlLabel>Delete Invoice</ControlLabel>
                                 <div>
-                                    <Button className="ghost" bsStyle="danger"><Glyphicon glyph="trash"/> Delete Invoice</Button>
-                                    <Button className="ghost" bsStyle="primary"><Glyphicon glyph="trash"/> Send Invoice</Button>
+                                    <Button className="ghost" bsStyle="danger" onClick={this.onDeleteClick.bind(this)}><Glyphicon glyph="trash"/> Delete This Invoice</Button>
                                 </div>
                             </FormGroup>
                         </Col>
@@ -151,6 +154,7 @@ InvoiceForm.propTypes = {
     errors: ImmutablePropTypes.map,
     invoice: ImmutablePropTypes.mapContains({
         dueDate: ImmutablePropTypes.number,
+        id: PropTypes.string.isRequired,
         lineItems: ImmutablePropTypes.list,
         name: PropTypes.string,
         notes: PropTypes.string,

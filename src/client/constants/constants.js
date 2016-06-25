@@ -15,6 +15,7 @@ export const
         INVOICE_FORM_CHANGE_NAME: null,
         INVOICE_FORM_CHANGE_NOTES: null,
         INVOICE_FORM_CHANGE_PAYMENT_STATUS: null,
+        INVOICE_FORM_DELETE: null,
         INVOICE_ROW_EDIT_INVOICE: null,
         LINE_ITEM_CHANGE_EXPENSE: null,
         LINE_ITEM_CHANGE_HOURS: null,

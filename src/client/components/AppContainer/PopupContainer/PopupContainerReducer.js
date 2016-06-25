@@ -19,6 +19,7 @@ export default function(
     case ACTIONS.CREATE_OR_EDIT_INVOICE_POPUP_CLOSE:
     case ACTIONS.CREATE_OR_EDIT_INVOICE_POPUP_CREATE:
     case ACTIONS.CREATE_OR_EDIT_INVOICE_POPUP_SAVE:
+    case ACTIONS.INVOICE_FORM_DELETE:
         return state.setIn(['activePopups', 'createOrEditInvoicePopup'], false);
 
     default:
