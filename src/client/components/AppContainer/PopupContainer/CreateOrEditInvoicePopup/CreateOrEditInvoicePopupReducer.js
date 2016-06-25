@@ -39,25 +39,25 @@ export default function(
                 editMode: true
             });
 
-    case ACTIONS.INVOICE_FORM_CHANGE_NAME:
+    case ACTIONS.INVOICE_FORM_NAME_CHANGE:
         return state
             .setIn(['invoice', 'name'], action.name)
             .deleteIn(['errors', 'name']);
 
-    case ACTIONS.INVOICE_FORM_CHANGE_NOTES:
+    case ACTIONS.INVOICE_FORM_NOTES_CHANGE:
         return state
             .setIn(['invoice', 'notes'], action.notes);
 
-    case ACTIONS.INVOICE_FORM_CHANGE_DUE_DATE:
+    case ACTIONS.INVOICE_FORM_DUE_DATE_CHANGE:
         return state
             .setIn(['invoice', 'dueDate'], action.unixTimestamp)
             .deleteIn(['errors', 'dueDate']);
 
-    case ACTIONS.INVOICE_FORM_CHANGE_PAYMENT_STATUS:
+    case ACTIONS.INVOICE_FORM_EDIT_PAYMENT_STATUS_CHANGE:
         return state
             .setIn(['invoice', 'paymentStatus'], action.paymentStatus);
 
-    case ACTIONS.INVOICE_FORM_ADD_LINE_ITEM:
+    case ACTIONS.INVOICE_FORM_LINE_ITEMS_FOOTER_ADD_LINE_ITEM:
         const currentLineItems = immutable.fromJS(state.get('invoice').get('lineItems') || []);
 
         return state

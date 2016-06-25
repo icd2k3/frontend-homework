@@ -51,7 +51,7 @@ export default function(
                 sortParam: action.sortParam
             }));
 
-    case ACTIONS.INVOICE_FORM_DELETE:
+    case ACTIONS.INVOICE_FORM_EDIT_OPTIONS_DELETE:
         return state
             .deleteIn(findInvoiceLocation(action.id));
 

@@ -1,9 +1,10 @@
+.root {
+	margin-bottom: 15px;
+}
+
 .total {
 	text-align: right;
 	font-size: 1.5em;
 	padding-right: 57px;
-}
-
-.lineItemsFooter {
-	margin-bottom: 15px;
+	float: right;
 }
