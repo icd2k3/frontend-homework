@@ -24,14 +24,17 @@ class InvoiceRow extends React.Component {
         const dueDate            = new Date(this.props.invoice.get('dueDate') * 1000),
             formattedDueDate     = moment(dueDate).format('MMM Do YYYY'),
             currentUnixTimestamp = new Date().getTime() / 1000,
-            dueSoonUnixTimetamp  = moment(dueDate).subtract(7, 'days').toDate().getTime() / 1000;
+            dueSoonUnixTimetamp  = moment(dueDate).subtract(7, 'days').toDate().getTime() / 1000,
+            paymentStatus        = this.props.invoice.get('paymentStatus');
 
-        let statusNode = (<Label bsStyle="primary">ACTIVE</Label>);
+        let statusNode = <Label bsStyle="primary">ACTIVE</Label>;
 
-        if (currentUnixTimestamp > this.props.invoice.get('dueDate')) {
-            statusNode = (<Label bsStyle="danger">LATE</Label>);
+        if (paymentStatus && paymentStatus === 'paid') {
+            statusNode = <Label bsStyle="success">PAID</Label>;
+        } else if (currentUnixTimestamp > this.props.invoice.get('dueDate')) {
+            statusNode = <Label bsStyle="danger">LATE</Label>;
         } else if (currentUnixTimestamp > dueSoonUnixTimetamp) {
-            statusNode = (<Label bsStyle="warning">DUE SOON</Label>);
+            statusNode = <Label bsStyle="warning">DUE SOON</Label>;
         }
 
         return (

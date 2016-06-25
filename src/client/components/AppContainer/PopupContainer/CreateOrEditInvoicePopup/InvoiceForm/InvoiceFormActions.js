@@ -26,3 +26,10 @@ export function changeDueDate(date) {
         type: ACTIONS.INVOICE_FORM_CHANGE_DUE_DATE
     };
 }
+
+export function changePaymentStatus(paymentStatus) {
+    return {
+        paymentStatus,
+        type: ACTIONS.INVOICE_FORM_CHANGE_PAYMENT_STATUS
+    };
+}

@@ -53,6 +53,10 @@ export default function(
             .setIn(['invoice', 'dueDate'], action.unixTimestamp)
             .deleteIn(['errors', 'dueDate']);
 
+    case ACTIONS.INVOICE_FORM_CHANGE_PAYMENT_STATUS:
+        return state
+            .setIn(['invoice', 'paymentStatus'], action.paymentStatus);
+
     case ACTIONS.INVOICE_FORM_ADD_LINE_ITEM:
         const currentLineItems = immutable.fromJS(state.get('invoice').get('lineItems') || []);
 

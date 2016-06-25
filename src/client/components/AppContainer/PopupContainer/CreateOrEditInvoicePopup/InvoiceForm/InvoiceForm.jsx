@@ -6,10 +6,12 @@ import {
     Button,
     Col,
     ControlLabel,
+    DropdownButton,
     FormControl,
     FormGroup,
     Glyphicon,
     Grid,
+    MenuItem,
     Row
 } from 'react-bootstrap';
 import { DateTimePicker } from 'react-widgets';
@@ -36,10 +38,15 @@ export default class InvoiceForm extends React.Component {
         this.props.dispatch(InvoiceFormActions.changeDueDate(date));
     }
 
+    onChangePaymentStatus(paymentStatus) {
+        this.props.dispatch(InvoiceFormActions.changePaymentStatus(paymentStatus));
+    }
+
     render() {
         const errorName = this.props.errors && this.props.errors.get('name'),
             errorLineItems = this.props.errors && this.props.errors.get('lineItems'),
-            errorDueDate = this.props.errors && this.props.errors.get('dueDate');
+            errorDueDate = this.props.errors && this.props.errors.get('dueDate'),
+            paymentStatus = this.props.invoice.get('paymentStatus') || 'unpaid';
 
         return (
             <Grid fluid>
@@ -103,6 +110,35 @@ export default class InvoiceForm extends React.Component {
                         Grand Total: ${convertNumberToCurrency(this.props.invoice.get('total')) || '0.00'}
                     </Col>
                 </Row>
+                {this.props.isEditMode
+                    ? <Row>
+                        <Col xs={6}>
+                            <FormGroup controlId="options">
+                                <ControlLabel>Options</ControlLabel>
+                                <div>
+                                    <Button className="ghost" bsStyle="danger"><Glyphicon glyph="trash"/> Delete Invoice</Button>
+                                    <Button className="ghost" bsStyle="primary"><Glyphicon glyph="trash"/> Send Invoice</Button>
+                                </div>
+                            </FormGroup>
+                        </Col>
+                        <Col xs={6}>
+                            <FormGroup controlId="paymentStatus">
+                                <ControlLabel>Payment Status</ControlLabel>
+                                <div>
+                                    <DropdownButton
+                                        id="status-dropdown"
+                                        onSelect={this.onChangePaymentStatus.bind(this)}
+                                        title={`${paymentStatus.charAt(0).toUpperCase()}${paymentStatus.slice(1)}`}
+                                    >
+                                        <MenuItem eventKey="unpaid">Unpaid</MenuItem>
+                                        <MenuItem eventKey="paid">Paid</MenuItem>
+                                    </DropdownButton>
+                                </div>
+                            </FormGroup>
+                        </Col>
+                      </Row>
+                    : null
+                }
             </Grid>
         );
     }
@@ -118,8 +154,10 @@ InvoiceForm.propTypes = {
         lineItems: ImmutablePropTypes.list,
         name: PropTypes.string,
         notes: PropTypes.string,
+        paymentStatus: PropTypes.string,
         total: PropTypes.number
-    }).isRequired
+    }).isRequired,
+    isEditMode: PropTypes.bool
 };
 
 export default connect(() => {
