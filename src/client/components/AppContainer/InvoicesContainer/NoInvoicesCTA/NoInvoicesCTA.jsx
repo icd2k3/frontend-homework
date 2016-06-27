@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import * as NoInvoicesCTAActions from './NoInvoicesCTAActions.js';
 import {
     Button,
+    Glyphicon,
     Jumbotron
 } from 'react-bootstrap';
 
@@ -22,7 +23,13 @@ export default class NoInvoicesCTA extends React.Component {
             <Jumbotron className={styles.root}>
                 <h1>Hey There</h1>
                 <p>Looks like you haven't created any invoices yet! Get started by clicking one of the options below</p>
-                <Button onClick={this.onAddNewInvoiceClick.bind(this)}>Add New Invoice</Button> or <Button onClick={this.onRandomlyGenerateInvoicesClick.bind(this)}>Randomly Generate Invoices</Button>
+                <Button className={styles.btn} onClick={this.onAddNewInvoiceClick.bind(this)}>
+                    <Glyphicon glyph="plus"/> Add New Invoice
+                </Button>
+                or
+                <Button className={styles.btn} onClick={this.onRandomlyGenerateInvoicesClick.bind(this)}>
+                    <Glyphicon glyph="random"/> Randomly Generate Invoices
+                </Button>
             </Jumbotron>
         );
     }

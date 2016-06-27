@@ -13,6 +13,7 @@ import './common/styles/global/modals.css';
 import './common/styles/global/forms.css';
 import './common/styles/global/dropdowns.css';
 import './common/styles/global/labels.css';
+import './common/styles/global/icons.css';
 
 // init datePicker localizer
 momentLocalizer(moment);
