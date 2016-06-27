@@ -26,16 +26,20 @@ This project includes some modules that weren't specified in the requirements...
 
 - [react-widgets](https://jquense.github.io/react-widgets/docs/#/?_k=a7aied) For the date picker field.
 
+## Features
+
+- Create a new invoice (including due date)
+- Randomly generate invoices
+- Edit existing invoice
+- Sort invoices list by name, total, or due date
+- Delete invoice
+- Mark invoice status as paid
+- Send invoice preview
+
 ## What Could Be Improved?
 
-#### Test Coverage
-This app doesn't have any unit test coverage, but if you'd like to see examples of my test coverage from past projects I'd be happy to send them over!
+- This app doesn't have any unit test coverage, but if you'd like to see examples of my test coverage from past projects I'd be happy to send them over!
+- Parts of the app could use some additional polish like subtle animations and in general just making it look less bootstrappy.
+- Nothing has been optimized for speed or file size.
+- Email doesn't send anywhere (but I do log the JSON invoice in the console)
 
-#### UI Polish
-Parts of the app could use some additional polish like subtle animations and in general just making it look less bootstrappy.
-
-#### Optimization
-Nothing has been optimized for speed or file size.
-
-#### Code Comments
-If other engineers were working on this project I would have left a lot more comments in the code
