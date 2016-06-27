@@ -9,6 +9,6 @@ If you have any questions, or problems running the local build, please contact m
 - Run `npm run start` to start dev server
 - Open localhost:8080 in browser (Chrome preferred)
 
-## Primary Frameworks & Libs
+## Tools
 
-- [Redux](https://github.com/reactjs/redux) I know, I know, the instructions said to use Flux for the data-layer, but Redux is very similar to Flux. There's a pretty good comparison post on the 2 on [here](http://stackoverflow.com/a/32920459/1411364)
+- [Redux](https://github.com/reactjs/redux) I know, I know, the instructions said to use Flux for the data-layer, but Redux is very similar to Flux. There's a pretty good comparison post on the 2 [here](http://stackoverflow.com/a/32920459/1411364)
