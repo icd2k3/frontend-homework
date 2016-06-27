@@ -11,6 +11,16 @@ If you have any questions, or problems running the local build, please contact m
 - Run `npm run start` to start dev server
 - Open localhost:8080 in browser (Chrome preferred)
 
+## Features
+
+- Create a new invoice (including due date)
+- Randomly generate invoices
+- Edit existing invoice
+- Sort invoices list by name, total, or due date
+- Delete invoice
+- Mark invoice status as paid
+- Send invoice preview
+
 ## Modules
 This project includes some modules that weren't specified in the requirements...
  
@@ -25,16 +35,6 @@ This project includes some modules that weren't specified in the requirements...
 - [react-bootstrap](https://react-bootstrap.github.io/) For quickly mocking up UI and helpers for forms, popups, etc.
 
 - [react-widgets](https://jquense.github.io/react-widgets/docs/#/?_k=a7aied) For the date picker field.
-
-## Features
-
-- Create a new invoice (including due date)
-- Randomly generate invoices
-- Edit existing invoice
-- Sort invoices list by name, total, or due date
-- Delete invoice
-- Mark invoice status as paid
-- Send invoice preview
 
 ## What Could Be Improved?
 
