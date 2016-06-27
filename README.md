@@ -23,3 +23,11 @@ This project includes some modules that weren't specified in the requirements...
 - [Immutable](https://facebook.github.io/immutable-js/) Can make applications more predictable because you know props/state couldn't have been accidentally changed somewhere in the flow. Also has a pretty handy API for modifying complex data.
  
 - [Redux](https://github.com/reactjs/redux) I know, I know, the instructions said to use Flux for the data-layer, but Redux is very similar to Flux. There's a pretty good comparison breakdown [here](http://stackoverflow.com/a/32920459/1411364)
+
+## What Could Be Improved?
+
+#### Test Coverage
+This app doesn't have any unit test coverage, but if you'd like to see examples of my test coverage from past projects I'd be happy to send them over
+
+#### UI Polish
+Parts of the app could use some additional polish like subtle animations and in general just making it look less bootstrappy.
