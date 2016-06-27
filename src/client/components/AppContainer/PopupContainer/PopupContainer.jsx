@@ -9,7 +9,7 @@ export default class PopupContainer extends React.Component {
         const activePopups = this.props.PopupContainerReducer.get('activePopups');
 
         return (
-            <div>
+            <div className={`modal-container ${activePopups.size ? 'active' : ''}`}>
                 {activePopups.get('createOrEditInvoicePopup')
                     ? <CreateOrEditInvoicePopup CreateOrEditInvoicePopupReducer={this.props.CreateOrEditInvoicePopupReducer}/>
                     : null
@@ -29,7 +29,8 @@ PopupContainer.propTypes = {
     CreateOrEditInvoicePopupReducer: ImmutablePropTypes.map.isRequired,
     PopupContainerReducer: ImmutablePropTypes.mapContains({
         activePopups: ImmutablePropTypes.mapContains({
-            createOrEditInvoicePopup: PropTypes.bool.isRequired
+            createOrEditInvoicePopup: PropTypes.bool,
+            sendInvoicePopup: PropTypes.bool
         }).isRequired
     }).isRequired,
     SendInvoicePopupReducer: ImmutablePropTypes.map.isRequired

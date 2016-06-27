@@ -7,7 +7,6 @@ import * as InvoicePreviewActions from './InvoicePreviewActions';
 import {
     Button,
     Col,
-    ControlLabel,
     Glyphicon,
     Grid,
     Label,
@@ -29,11 +28,6 @@ class SendInvoicePreview extends React.Component {
         return (
             <div>
                 <Grid fluid>
-                    <Row>
-                        <Col xs={12}>
-                            <ControlLabel>Preview</ControlLabel>
-                        </Col>
-                    </Row>
                     <div className={styles.preview}>
                         <Row className={styles.row}>
                             <Col xs={6}>

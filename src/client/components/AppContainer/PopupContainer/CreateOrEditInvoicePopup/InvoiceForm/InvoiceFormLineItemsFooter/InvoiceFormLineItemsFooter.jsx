@@ -10,6 +10,12 @@ import {
 import styles from './InvoiceFormLineItemsFooter.css';
 
 class InvoiceFormLineItemsFooter extends React.Component {
+    componentWillMount() {
+        if (!this.props.hasLineItems) {
+            this.props.dispatch(InvoiceFormLineItemsFooterActions.add());
+        }
+    }
+
     render() {
         return (
             <div className={styles.root}>
@@ -34,6 +40,7 @@ InvoiceFormLineItemsFooter.displayName = 'InvoiceFormLineItemsFooter';
 InvoiceFormLineItemsFooter.propTypes = {
     dispatch: PropTypes.func.isRequired,
     error: PropTypes.bool,
+    hasLineItems: PropTypes.bool,
     total: PropTypes.number
 };
 

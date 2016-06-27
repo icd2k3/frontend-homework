@@ -10,7 +10,7 @@ export default class InvoicePreviewLineItems extends React.Component {
         return (
             <Grid fluid>
                 {this.props.lineItems.map((lineItem) => {
-                    return <InvoicePreviewLineItem lineItem={lineItem} />;
+                    return <InvoicePreviewLineItem key={lineItem.get('id')} lineItem={lineItem} />;
                 })}
             </Grid>
         );

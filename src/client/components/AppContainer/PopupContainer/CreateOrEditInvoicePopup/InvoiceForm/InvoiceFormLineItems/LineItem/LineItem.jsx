@@ -117,9 +117,9 @@ LineItem.displayName = 'LineItem';
 LineItem.propTypes = {
     dispatch: PropTypes.func.isRequired,
     lineItem: ImmutablePropTypes.mapContains({
-        hours: PropTypes.string,
+        hours: PropTypes.number,
         id: PropTypes.string.isRequired,
-        rate: PropTypes.string,
+        rate: PropTypes.number,
         total: PropTypes.number,
         type: PropTypes.oneOf(['labor', 'materials', 'expenses', 'other']).isRequired
     }).isRequired

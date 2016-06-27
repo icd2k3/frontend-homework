@@ -6,6 +6,7 @@ import store from 'store';
 import { Provider } from 'react-redux';
 import AppContainer from './AppContainer/AppContainer.jsx';
 
+// global styles (individual component styles are grouped in component tree)
 import 'react-widgets/dist/css/react-widgets.css';
 import './common/styles/global/core.css';
 import './common/styles/global/buttons.css';
@@ -21,6 +22,7 @@ momentLocalizer(moment);
 class Index extends React.Component {
     render() {
         return (
+            // provider https://github.com/reactjs/react-redux/blob/master/docs/api.md#provider-store
             <Provider store={store}>
                 <AppContainer/>
             </Provider>

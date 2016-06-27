@@ -2,7 +2,7 @@
 
 body {
 	.root {
-		background: $purple;
+		background: $black;
 		bottom: 0;
 		display: flex;
 		max-width: inherit;
@@ -10,14 +10,14 @@ body {
 		width: 100%;
 		z-index: 1;
 	    align-items: center;
-	    padding: $padding;
+	    padding: 15px $padding;
 	}
 
 	.btn {
 		&:hover,
 		&:focus {
 			background: $white;
-			color: $purple;
+			color: $black;
 		}
 		&:last-child {
 			margin-left: auto;

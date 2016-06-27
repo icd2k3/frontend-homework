@@ -52,6 +52,7 @@ export default class InvoiceForm extends React.Component {
                     <Col xs={12}>
                         <InvoiceFormLineItemsFooter
                             error={errorLineItems}
+                            hasLineItems={Boolean(this.props.invoice.get('lineItems'))}
                             total={this.props.invoice.get('total')}
                         />
                     </Col>

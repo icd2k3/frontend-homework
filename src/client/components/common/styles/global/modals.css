@@ -7,6 +7,7 @@
 
 :global .modal {
 	background: rgba(0,0,0,0.3);
+	overflow: auto;
 }
 
 :global .modal-body {
@@ -50,6 +51,17 @@
 			}
 		}
 	}
+}
+
+:global .modal-container {
+	height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    display: none;
+    &.active {
+    	display: block;
+    }
 }
 
 :global .modal-header {

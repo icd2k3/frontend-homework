@@ -66,7 +66,7 @@ export default function(
         let grandTotal = 0;
 
         for (let i = 0; i < amount; i++) {
-            const lineItemsAmount = 1 + Math.round(Math.random() * 10),
+            const lineItemsAmount = 1 + Math.round(Math.random() * 8),
                 lineItems = [];
 
             for (let j = 0; j < lineItemsAmount; j++) {

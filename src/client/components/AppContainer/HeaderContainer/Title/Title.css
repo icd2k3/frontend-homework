@@ -1,20 +1,26 @@
 @import '../../../common/styles/variables.css';
 
-.titleBar {
-	padding-top: $padding;
-	padding-bottom: $padding;
-	display: flex;
-	align-items: center;
-}
+body {
+	.titleBar {
+		padding: 15px $padding;
+		display: flex;
+		align-items: center;
+	}
 
-.title {
-	color: $white;
-	font-weight: 600;
-    letter-spacing: 0.05em;
-    font-size: 2em;
-    margin: 0;
-}
+	.title {
+		color: $white;
+		font-weight: 600;
+	    letter-spacing: 0.05em;
+	    font-size: 2em;
+	    margin: 0;
+	}
 
-.button {
-	margin-left: auto;
+	.button {
+		margin-left: auto;
+		&:hover,
+		&:focus {
+			background: $white;
+	    	color: $black;
+		}
+	}
 }

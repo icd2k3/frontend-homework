@@ -1,7 +1,7 @@
 @import '../../../common/styles/variables.css';
 
 .sortBar {
-	background: $black;
+	background: $purple;
 	font-size: 0.9em;
 	color: #fff;
 	padding: 7px 0;

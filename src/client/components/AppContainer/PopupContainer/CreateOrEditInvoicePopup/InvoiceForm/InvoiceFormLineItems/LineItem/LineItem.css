@@ -20,6 +20,8 @@ body {
 
 	.inputGroup {
 		width: 50%;
+		display: inline-table;
+    	vertical-align: middle;
 	}
 
 	.formControl {
