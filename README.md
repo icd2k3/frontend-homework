@@ -38,7 +38,7 @@ This project includes some modules that weren't specified in the requirements...
 
 ## What Could Be Improved?
 
-- This app doesn't have any unit test coverage, but if you'd like to see examples of my test coverage from past projects I'd be happy to send them over!
+- No unit test coverage. If you'd like to see examples of test coverage from past projects I'd be happy to send them over!
 - Very few comments in code (if I was working with an engineering team I'd definitely be leaving more comments). If you have any questions about parts of the code please let me know.
 - Parts of the app could use some additional polish like subtle animations and in general just making it look less bootstrappy.
 - Nothing has been optimized for speed or file size.
