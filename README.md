@@ -1,5 +1,7 @@
 # Seed Frontend Homework
 
+This is way over-engineered for what it needs to be, but I wanted to use the same architecture/techniques that I would use when working in a large-scale application.
+
 If you have any questions, or problems running the local build, please contact me at icd2k3@gmail.com.
 
 ## Setup
