@@ -1,10 +1,9 @@
 # Seed Frontend Homework
-
-![Invoiceinator](https://raw.githubusercontent.com/icd2k3/frontend-homework/master/img/invoiceinator.gif)
-
 This is waaay over-engineered for what it needs to be, but I wanted to use the same architecture/techniques that I like to use when working on a large-scale application.
 
 If you have any questions, or problems running the local build, please contact me at icd2k3@gmail.com.
+
+![Invoiceinator](https://raw.githubusercontent.com/icd2k3/frontend-homework/master/img/invoiceinator.gif)
 
 ## Setup
 
