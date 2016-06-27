@@ -41,6 +41,7 @@ This project includes some modules that weren't specified in the requirements...
 - No unit test coverage. If you'd like to see examples of test coverage from past projects I'd be happy to send them over!
 - Very few comments in code (if I was working with an engineering team I'd definitely be leaving more comments). If you have any questions about parts of the code please let me know.
 - Parts of the app could use some additional polish like subtle animations and in general just making it look less bootstrappy.
+- Form validation
 - Nothing has been optimized for speed or file size.
 - Email doesn't send anywhere (but I do log the JSON invoice in the console)
 
