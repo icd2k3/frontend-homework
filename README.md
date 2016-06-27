@@ -14,6 +14,10 @@ If you have any questions, or problems running the local build, please contact m
 ## Modules
 This project includes some modules that weren't specified in the requirements...
 
+- [react-bootstrap](https://react-bootstrap.github.io/) For quickly mocking up UI and helpers for forms, popups, etc.
+
+- [react-widgets](https://jquense.github.io/react-widgets/docs/#/?_k=a7aied) For the date picker field.
+
 - [Immutable](https://facebook.github.io/immutable-js/) Can make applications more predictable because you know props/state couldn't have been accidentally changed somewhere in the flow. Also has a pretty handy API for modifying complex data.
  
 - [Redux](https://github.com/reactjs/redux) I know, I know, the instructions said to use Flux for the data-layer, but Redux is very similar to Flux. There's a pretty good comparison breakdown [here](http://stackoverflow.com/a/32920459/1411364)
