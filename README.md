@@ -14,6 +14,8 @@ If you have any questions, or problems running the local build, please contact m
 ## Modules
 This project includes some modules that weren't specified in the requirements...
 
+- [postcss](https://github.com/postcss/postcss) For style parsing
+
 - [react-bootstrap](https://react-bootstrap.github.io/) For quickly mocking up UI and helpers for forms, popups, etc.
 
 - [react-widgets](https://jquense.github.io/react-widgets/docs/#/?_k=a7aied) For the date picker field.
