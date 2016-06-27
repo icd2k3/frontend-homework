@@ -45,10 +45,12 @@ class InvoiceRow extends React.Component {
         return (
             <Row className={styles.root} onClick={this.onInvoiceClick.bind(this)}>
                 <Col
+                    className={styles.name}
                     lg={6}
                     sm={5}
                     xs={6}
                 >
+                    <Glyphicon className={styles.editIcon} glyph="cog"/>
                     <span>{this.props.invoice.get('name')}</span>
                 </Col>
                 <Col
@@ -78,11 +80,14 @@ class InvoiceRow extends React.Component {
                 >
                     <Button
                         bsSize="xsmall"
-                        bsStyle="primary"
+                        bsStyle={this.props.invoice.get('sent') ? 'success' : 'primary'}
                         className="ghost"
                         onClick={this.onSendClick.bind(this)}
                     >
-                        <Glyphicon glyph="send"/> Send
+                    {this.props.invoice.get('sent')
+                        ? <span><Glyphicon glyph="ok"/> Sent!</span>
+                        : <span><Glyphicon glyph="send"/> Send</span>
+                    }
                     </Button>
                 </Col>
             </Row>
@@ -99,6 +104,7 @@ InvoiceRow.propTypes = {
         id: PropTypes.string.isRequired,
         lineItems: ImmutablePropTypes.list.isRequired,
         name: PropTypes.string.isRequired,
+        sent: PropTypes.bool,
         total: PropTypes.number.isRequired
     }).isRequired
 };

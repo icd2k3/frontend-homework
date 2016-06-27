@@ -1,0 +1,22 @@
+/*
+* This file consists of global CSS rules to override bootstrap styles
+* and general style rules for html elements
+*/
+
+@import '../variables.css';
+
+:global .label {
+	font-size: 0.8em;
+}
+
+:global .label-default {
+	background: $gray !important;
+	color: $black;
+}
+
+:global .label-default {
+	font-size: 1em;
+    font-weight: normal;
+    background: $darkerGray;
+    letter-spacing: 0.02em;
+}

@@ -71,7 +71,6 @@ export default class InvoiceForm extends React.Component {
 InvoiceForm.displayName = 'InvoiceForm';
 
 InvoiceForm.propTypes = {
-    dispatch: PropTypes.func.isRequired,
     errors: ImmutablePropTypes.map,
     invoice: ImmutablePropTypes.mapContains({
         dueDate: ImmutablePropTypes.number,

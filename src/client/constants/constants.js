@@ -16,6 +16,7 @@ export const
         INVOICE_FORM_LINE_ITEMS_FOOTER_ADD_LINE_ITEM: null,
         INVOICE_FORM_NAME_CHANGE: null,
         INVOICE_FORM_NOTES_CHANGE: null,
+        INVOICE_PREVIEW_EDIT_INVOICE: null,
         INVOICE_ROW_EDIT_INVOICE: null,
         INVOICE_ROW_SEND_INVOICE: null,
         LINE_ITEM_CHANGE_EXPENSE: null,
@@ -29,6 +30,8 @@ export const
         SEND_INVOICE_POPUP_CLOSE: null,
         SEND_INVOICE_POPUP_RESET: null,
         SEND_INVOICE_POPUP_SEND: null,
+        SEND_INVOICE_POPUP_SEND_ERROR: null,
+        SEND_INVOICE_RECIPIENTS_EMAIL_CHANGE: null,
         SORT_BY: null,
         TITLE_ADD_NEW_INVOICE: null
     })),

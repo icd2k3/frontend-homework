@@ -1,13 +1,13 @@
 @import '../../../common/styles/variables.css';
 
 .sortBar {
-	background: $purple;
+	background: $black;
 	font-size: 0.9em;
 	color: #fff;
 	padding: 7px 0;
 }
 
-.sort {
+.sort, .colCenter {
 	cursor: pointer;
 	&:hover,
 	&:focus {

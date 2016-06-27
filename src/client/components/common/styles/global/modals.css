@@ -1,0 +1,84 @@
+/*
+* This file consists of global CSS rules to override bootstrap styles
+* and general style rules for html elements
+*/
+
+@import '../variables.css';
+
+:global .modal {
+	background: rgba(0,0,0,0.3);
+}
+
+:global .modal-body {
+	padding: 30px;
+	background: $gray;
+}
+
+:global .modal-footer {
+	padding: 0;
+	.btn {
+		font-size: 1.2em;
+		letter-spacing: 0.06em;
+		width: 30%;
+		border-radius: 0;
+		padding: 20px 0;
+	}
+	.btn+.btn {
+		margin: 0;
+		width: 70%;
+	}
+	.btn-default {
+		background: $white;
+		span {
+			display: inline-block;
+			position: relative;
+			&:after {
+				content: '';
+				display: block;
+				position: absolute;
+				height: 2px;
+				background: $black;
+				width: 0;
+				bottom: -4px;
+				transition: width 0.15s $easeOutQuad;
+			}
+		}
+		&:hover,
+		&:focus {
+			span:after {
+				width: 100%;
+			}
+		}
+	}
+}
+
+:global .modal-header {
+	padding: 20px 30px;
+	h4 {
+		font-size: 2em;
+	}
+	.close {
+		font-size: 2em;
+	    -webkit-font-smoothing: antialiased;
+	    display: inline-block;
+	    font-family: 'Glyphicons Halflings';
+	    font-style: normal;
+	    font-weight: 400;
+	    line-height: 1;
+	    position: absolute;
+	    right: 30px;
+    	top: 27px;
+		span {
+			display: none;
+		}
+		&:after {
+			content: '\e014';
+		}
+	}
+}
+
+@media (min-width: 992px) {
+	:global .modal-lg {
+	    width: 775px;
+	}
+}

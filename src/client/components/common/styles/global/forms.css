@@ -1,0 +1,31 @@
+/*
+* This file consists of global CSS rules to override bootstrap styles
+* and general style rules for html elements
+*/
+
+@import '../variables.css';
+
+:global .input-group-btn.dropdown {
+	width: 1% !important;
+}
+
+:global .input-group-btn .dropdown-toggle {
+	background: $darkGray;
+	border: 1px solid #ccc;
+	color: $black;
+	padding: 6px 40px;
+}
+
+:global .input-group-btn .dropdown-toggle .caret {
+    position: absolute;
+    right: 10px;
+    top: 15px;
+}
+
+:global .has-error .control-label {
+	color: $red;
+}
+:global .has-error .form-control,
+:global .form-group.has-error .rw-datetimepicker {
+	border: 1px solid $red;
+}

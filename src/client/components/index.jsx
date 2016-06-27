@@ -7,7 +7,12 @@ import { Provider } from 'react-redux';
 import AppContainer from './AppContainer/AppContainer.jsx';
 
 import 'react-widgets/dist/css/react-widgets.css';
-import './index.css';
+import './common/styles/global/core.css';
+import './common/styles/global/buttons.css';
+import './common/styles/global/modals.css';
+import './common/styles/global/forms.css';
+import './common/styles/global/dropdowns.css';
+import './common/styles/global/labels.css';
 
 // init datePicker localizer
 momentLocalizer(moment);

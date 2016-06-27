@@ -42,7 +42,7 @@ class CreateOrEditInvoicePopup extends React.Component {
 
         return (
             <Modal.Dialog bsSize="large">
-                <Modal.Header>
+                <Modal.Header closeButton onHide={this.onCancelClick.bind(this)}>
                     <Modal.Title>{isEditMode ? 'Edit' : 'Create'} Invoice</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
@@ -53,7 +53,9 @@ class CreateOrEditInvoicePopup extends React.Component {
                     />
                 </Modal.Body>
                 <Modal.Footer>
-                    <Button onClick={this.onCancelClick.bind(this)}>Cancel</Button>
+                    <Button onClick={this.onCancelClick.bind(this)}>
+                        <span>Cancel</span>
+                    </Button>
                     <Button bsStyle="primary" onClick={isEditMode ? this.onSaveClick.bind(this) : this.onCreateClick.bind(this)}>
                         {isEditMode
                             ? <span><Glyphicon glyph="save-file"/> Save Invoice</span>

@@ -1,7 +1,7 @@
 @import '../../common/styles/variables.css';
 
 .root {
-	background: $black;
+	background: $purple;
 	max-width: inherit;
 	position: fixed;
 	top: 0;

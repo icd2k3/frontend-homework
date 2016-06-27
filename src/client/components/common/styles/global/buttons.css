@@ -1,0 +1,71 @@
+/*
+* This file consists of global CSS rules to override bootstrap styles
+* and general style rules for html elements
+*/
+
+@import '../variables.css';
+
+:global .btn {
+	border: 0;
+	box-sizing: border-box;
+	font-weight: 400;
+    outline: none !important;
+    padding: 0.6em 1.4em;
+    white-space: nowrap;
+}
+
+:global .btn-default {
+	background: $gray;
+}
+
+:global .btn-primary {
+	background: $blue;
+	border-radius: 2px;
+	color: $white;
+	&:hover,
+	&:focus {
+		background: $lightBlue;
+		color: $white;
+    	box-shadow: 0 0.125rem 0.25rem rgba(0,0,0,0.15);
+	}
+	&:active:hover {
+		background: $darkBlue;
+		color: $white;
+	}
+}
+
+:global .btn-default.ghost {
+	background: transparent;
+	border: 1px solid $white;
+	color: $white;
+}
+
+:global .btn-primary.ghost {
+	background: transparent;
+	border: 1px solid $blue;
+	color: $blue;
+	&:hover,
+	&:focus,
+	&:active:hover {
+		background: $blue;
+		color: $white;
+	}
+}
+
+:global .btn-success.ghost {
+	background: transparent;
+	border: 1px solid $green;
+	color: $green;
+}
+
+:global .btn-danger.ghost {
+	background: transparent;
+	border: 1px solid $red;
+	color: $red;
+	&:hover,
+	&:focus,
+	&:active:hover {
+		background: $red;
+		color: $white;
+	}
+}

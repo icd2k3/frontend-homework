@@ -22,6 +22,7 @@ class InvoiceFormDueDate extends React.Component {
                 <ControlLabel>Due Date</ControlLabel>
                 <DateTimePicker
                     onChange={this.onChange.bind(this)}
+                    time={false}
                     value={this.props.dueDate ? new Date(this.props.dueDate * 1000) : null}
                 />
             </FormGroup>

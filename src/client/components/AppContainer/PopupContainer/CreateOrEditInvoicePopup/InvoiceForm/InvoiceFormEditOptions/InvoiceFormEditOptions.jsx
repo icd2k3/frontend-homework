@@ -12,10 +12,10 @@ export default class InvoiceFormEditOptions extends React.Component {
         return (
             <Row>
                 <Col xs={6}>
-                    <InvoiceFormEditOptionsDelete id={this.props.id}/>
+                    <InvoiceFormEditOptionsPaymentStatus paymentStatus={this.props.paymentStatus}/>
                 </Col>
                 <Col xs={6}>
-                    <InvoiceFormEditOptionsPaymentStatus paymentStatus={this.props.paymentStatus}/>
+                    <InvoiceFormEditOptionsDelete id={this.props.id}/>
                 </Col>
             </Row>
         );

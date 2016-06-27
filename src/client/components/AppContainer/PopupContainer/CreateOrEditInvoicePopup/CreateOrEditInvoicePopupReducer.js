@@ -24,7 +24,7 @@ export default function(
         currentState
             .getIn(['invoice', 'lineItems'])
             .forEach((lineItem) => {
-                total += Number(lineItem.get('total') || 0);
+                total += lineItem.get('total') || 0;
             });
 
         return total;
@@ -33,6 +33,7 @@ export default function(
     switch (action.type) {
 
     case ACTIONS.INVOICE_ROW_EDIT_INVOICE:
+    case ACTIONS.INVOICE_PREVIEW_EDIT_INVOICE:
         return state
             .merge({
                 invoice: action.invoice,
@@ -86,7 +87,7 @@ export default function(
 
     case ACTIONS.LINE_ITEM_CHANGE_EXPENSE:
         newState = state
-            .setIn(findLineItemLocation(action.id).concat(['total']), action.expense);
+            .setIn(findLineItemLocation(action.id).concat(['total']), Number(action.expense));
 
         return newState
             .setIn(['invoice', 'total'], getTotal(newState));
@@ -94,7 +95,7 @@ export default function(
     case ACTIONS.LINE_ITEM_CHANGE_HOURS:
         newState = state
             .mergeIn(findLineItemLocation(action.id), {
-                hours: action.hours,
+                hours: Number(action.hours),
                 total: Number(action.hours) * (state.getIn(findLineItemLocation(action.id).concat(['rate'])) || '0')
             });
 
@@ -104,7 +105,7 @@ export default function(
     case ACTIONS.LINE_ITEM_CHANGE_RATE:
         newState = state
             .mergeIn(findLineItemLocation(action.id), {
-                rate: action.rate,
+                rate: Number(action.rate),
                 total: Number(action.rate) * (state.getIn(findLineItemLocation(action.id).concat(['hours'])) || '0')
             });
 

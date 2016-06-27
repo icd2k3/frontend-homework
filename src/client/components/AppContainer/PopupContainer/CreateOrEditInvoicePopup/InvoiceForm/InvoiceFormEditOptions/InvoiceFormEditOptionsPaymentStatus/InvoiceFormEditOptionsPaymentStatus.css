@@ -1,0 +1,41 @@
+@import '../../../../../../common/styles/variables.css';
+
+.root {
+	height: 100%;
+	max-width: 1200px;
+	position: relative;
+	padding: 0;
+}
+
+.dropdownUnpaid {
+	background: $red;
+}
+
+.dropdownPaid {
+	background: $green;
+}
+
+.dropdownToggle .caret {
+	margin-left: 8px;
+    margin-top: -2px;
+}
+
+.glyphicon {
+	margin-right: 6px;
+}
+
+.menuUnpaid a,
+.menuPaid a {
+	&:hover,
+	&:focus {
+		background: $gray !important;
+	}
+}
+
+.menuUnpaid a {
+	color: $red !important;
+}
+
+.menuPaid a {
+	color: $green !important;
+}

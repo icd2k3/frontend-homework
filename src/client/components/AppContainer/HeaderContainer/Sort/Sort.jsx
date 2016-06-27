@@ -42,18 +42,11 @@ class Sort extends React.Component {
                 </Col>
                 <Col
                     className={styles.colCenter}
+                    onClick={this.props.dispatch.bind(this, SortActions.sortBy('dueDate'))}
                     sm={1}
                     xs={3}
                 >
                     Status
-                </Col>
-                <Col
-                    className={styles.colRight}
-                    lg={1}
-                    sm={2}
-                    xs={3}
-                >
-                    Send
                 </Col>
             </Row>
         );

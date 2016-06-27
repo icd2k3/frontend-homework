@@ -43,5 +43,12 @@ body {
 	    padding: 0;
 	    vertical-align: middle;
 	    width: 40px;
+	    border-radius: 0 4px 4px 0;
+	    background: $gray !important;
+		&:hover,
+		&:focus,
+		&:active:hover {
+			background: $red !important;
+		}
 	}
 }

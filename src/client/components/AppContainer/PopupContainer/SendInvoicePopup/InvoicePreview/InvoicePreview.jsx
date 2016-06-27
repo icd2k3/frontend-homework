@@ -2,6 +2,8 @@ import React, { PropTypes } from 'react';
 import ImmutablePropTypes from 'react-immutable-proptypes';
 import { connect } from 'react-redux';
 import moment from 'moment';
+import { convertNumberToCurrency } from 'utils';
+import * as InvoicePreviewActions from './InvoicePreviewActions';
 import {
     Button,
     Col,
@@ -11,10 +13,16 @@ import {
     Label,
     Row
 } from 'react-bootstrap';
+import InvoicePreviewLineItems from './InvoicePreviewLineItems/InvoicePreviewLineItems.jsx';
 
-import styles from './SendInvoicePreview.css';
+import styles from './InvoicePreview.css';
 
 class SendInvoicePreview extends React.Component {
+
+    onEditClick() {
+        this.props.dispatch(InvoicePreviewActions.edit(this.props.invoice));
+    }
+
     render() {
         const dueDate = new Date(this.props.invoice.get('dueDate') * 1000);
 
@@ -47,15 +55,27 @@ class SendInvoicePreview extends React.Component {
                             </Col>
                         </Row>
                         <hr/>
+                        <Row>
+                            <Col xs={12}>
+                                <InvoicePreviewLineItems lineItems={this.props.invoice.get('lineItems')} />
+                            </Col>
+                        </Row>
+                        <hr/>
+                        <Row>
+                            <Col xs={12}>
+                                <h3 className={styles.total}>Balance: ${convertNumberToCurrency(this.props.invoice.get('total'))}</h3>
+                            </Col>
+                        </Row>
                     </div>
                     <Row className={styles.edit}>
                         <Col xs={12}>
-                            <Button className="ghost" bsStyle="primary"><Glyphicon glyph="pencil"/> Edit This Invoice</Button>
-                        </Col>
-                    </Row>
-                    <Row>
-                        <Col xs={12}>
-                            <ControlLabel>Recipient's Email Address</ControlLabel>
+                            <Button
+                                bsStyle="primary"
+                                className="ghost"
+                                onClick={this.onEditClick.bind(this)}
+                            >
+                                <Glyphicon glyph="pencil"/> Edit This Invoice
+                            </Button>
                         </Col>
                     </Row>
                 </Grid>
@@ -67,9 +87,12 @@ class SendInvoicePreview extends React.Component {
 SendInvoicePreview.displayName = 'SendInvoicePreview';
 
 SendInvoicePreview.propTypes = {
+    dispatch: PropTypes.func.isRequired,
     invoice: ImmutablePropTypes.mapContains({
+        dueDate: PropTypes.number.isRequired,
+        lineItems: ImmutablePropTypes.list.isRequired,
         name: PropTypes.string.isRequired,
-        dueDate: PropTypes.number.isRequired
+        total: PropTypes.number.isRequired
     }).isRequired
 };
 

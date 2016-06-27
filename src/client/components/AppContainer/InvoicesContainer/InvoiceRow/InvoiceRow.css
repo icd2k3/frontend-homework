@@ -11,21 +11,32 @@
 		background: $gray;
 	}
 
-	&:before {
-		background: $purple;
-		content: '';
-		display: inline-block;
-		height: 50px;
-		transition: width 0.2s $easeOutQuad;
-		width: 0px;
-	}
-
 	&:hover,
 	&:focus {
-		&:before {
-			width: 10px;
+		color: #000;
+
+		.editIcon {
+			left: 15px;
+			opacity: 1;
+		}
+		.name {
+			padding-left: 50px;
 		}
 	}
+}
+
+.name {
+	transition: padding-left 0.15s $easeOutQuad;
+}
+
+.editIcon {
+	font-size: 1.8em;
+    position: absolute;
+    top: -1px;
+    left: -30px;
+    opacity: 0;
+    color: $purple;
+    transition: opacity 0.15s linear, left 0.15s $easeOutQuad;
 }
 
 .colCenter {

@@ -55,6 +55,10 @@ export default function(
         return state
             .deleteIn(findInvoiceLocation(action.id));
 
+    case ACTIONS.SEND_INVOICE_POPUP_SEND:
+        return state
+            .setIn(findInvoiceLocation(action.invoiceId).concat(['sent']), true);
+
     case ACTIONS.FOOTER_CONTAINER_RANDOMLY_GENERATE_INVOICES:
     case ACTIONS.NO_INVOICES_CTA_RANDOMLY_GENERATE_INVOICES:
         const randomInvoices = [],
@@ -67,8 +71,8 @@ export default function(
 
             for (let j = 0; j < lineItemsAmount; j++) {
                 const lineItemType = LINE_ITEM_TYPES[Math.round(Math.random() * 3)],
-                    hours = lineItemType === 'labor' ? String(Math.round((Math.random() * 99) * 10) / 10) : null,
-                    rate = lineItemType === 'labor' ? String(Math.round((Math.random() * 99) * 100) / 100) : null,
+                    hours = lineItemType === 'labor' ? Math.round(Math.random() * 99) : null,
+                    rate = lineItemType === 'labor' ? Math.round(Math.random() * 99) : null,
                     total = lineItemType === 'labor' ? hours * rate : Math.round((Math.random() * 999) * 100) / 100;
 
                 lineItems.push({

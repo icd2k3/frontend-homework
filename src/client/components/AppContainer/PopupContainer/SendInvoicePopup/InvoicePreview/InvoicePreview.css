@@ -49,3 +49,8 @@
 	text-align: center;
 	margin-top: $padding;
 }
+
+.total {
+	text-align: right;
+	margin: 0;
+}

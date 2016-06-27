@@ -1,0 +1,13 @@
+/*
+* This file consists of global CSS rules to override bootstrap styles
+* and general style rules for html elements
+*/
+
+@import '../variables.css';
+
+:global .dropdown-menu>li>a {
+	&:hover,
+	&:focus {
+		background: $gray;
+	}
+}
