@@ -36,3 +36,6 @@ Parts of the app could use some additional polish like subtle animations and in 
 
 #### Optimization
 Nothing has been optimized for speed or file size.
+
+#### Code Comments
+If other engineers were working on this project I would have left a lot more comments in the code
