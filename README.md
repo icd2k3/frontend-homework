@@ -11,4 +11,4 @@ If you have any questions, or problems running the local build, please contact m
 
 ## Primary Frameworks & Libs
 
-- [https://github.com/reactjs/redux](Redux)
+- [https://github.com/reactjs/redux](Redux) I know, I know, the instructions said to use Flux for the data-layer, but Redux is very similar to Flux. There's a pretty good comparison post on the 2 on [http://stackoverflow.com/a/32920459/1411364](here)
