@@ -6,7 +6,7 @@ If you have any questions, or problems running the local build, please contact m
 
 ## Setup
 
-- Run `npm i` to install all project dependencies
+- Run `npm i` to install all required packages
 - Run `npm run build` to bundle scripts
 - Run `npm run start` to start dev server
 - Open localhost:8080 in browser (Chrome preferred)
@@ -21,9 +21,9 @@ If you have any questions, or problems running the local build, please contact m
 - Mark invoice status as paid
 - Send invoice preview
 
-## Modules
+## Packages
 This project includes some modules that weren't specified in the requirements...
- 
+
 - [Redux](https://github.com/reactjs/redux) I know... I know... the instructions said to use [Flux](https://facebook.github.io/flux/) for the data-layer, but Redux is very similar to Flux and I prefer it for large apps. There's a pretty good comparison breakdown [here](http://stackoverflow.com/a/32920459/1411364)
 
 - [redux-logger](https://github.com/evgenyrodionov/redux-logger) Displays every single user action including prev/next full application state. Really handy for debugging, and can be hooked up to error loggers etc.
